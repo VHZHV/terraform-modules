@@ -6,7 +6,7 @@ resource "google_pubsub_topic" "deadletter_topic" {
 
 resource "google_pubsub_subscription" "subscription" {
   name  = "${var.environment}_${var.subscription_short_name}"
-  topic = var.topic_name
+  topic = var.topic_id
 
   ack_deadline_seconds = 60
 
