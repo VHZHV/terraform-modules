@@ -14,7 +14,7 @@ variable "project"{
   })
 }
 
-variable "topic_name" {
+variable "topic_id" {
   type = string
   description = "The full name of the topic e.g. project/foo/topic/bar"
 }
