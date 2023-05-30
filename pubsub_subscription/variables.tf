@@ -8,10 +8,9 @@ variable "environment"{
   description = "Name of the environment, will be included in resource names"
 }
 
-variable "project"{
-  type = object({
-    number = number
-  })
+variable "project_id"{
+  type = string
+  description = "GCP project id"
 }
 
 variable "topic_id" {
