@@ -7,7 +7,7 @@ data google_project project{
 
 resource "google_service_account" "sa" {
   project = data.google_project.project.project_id
-  account_id   = "${var.cluster_name}-${var.k8s_namespace}-${var.service_account_short_name}"
+  account_id   = "${var.cluster_name}-${var.service_account_short_name}"
   display_name = "Service Account for ${var.service_account_short_name} to be used with workload identity in cluster ${var.cluster_name}"
 }
 

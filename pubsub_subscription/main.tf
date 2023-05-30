@@ -9,7 +9,7 @@ data google_project "project"{
 
 resource "google_pubsub_topic" "deadletter_topic" {
   project = data.google_project.project.project_id
-  name = "${var.environment}_${var.subscription_short_name}_deadletters"
+  name = "${var.environment}_${var.subscription_short_name}-deadletters"
 }
 
 resource "google_pubsub_subscription" "subscription" {
