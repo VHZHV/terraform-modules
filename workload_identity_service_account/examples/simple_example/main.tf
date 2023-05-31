@@ -23,6 +23,7 @@ resource google_container_cluster "cluster"{
 module "workload_identity_sa" {
   #  source = "github.com/VHZHV/terraform-modules//workload_identity_service_account"
   source = "../.."
+  environment = "test"
   cluster_name = google_container_cluster.cluster.name
   project_id = data.google_project.project.project_id
   service_account_short_name = "example"
