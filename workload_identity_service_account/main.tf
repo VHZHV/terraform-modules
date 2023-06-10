@@ -1,9 +1,6 @@
-
-
 data google_project project{
   project_id = var.project_id
 }
-
 
 resource "google_service_account" "sa" {
   project = data.google_project.project.project_id
