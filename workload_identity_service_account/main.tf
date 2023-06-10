@@ -11,8 +11,6 @@ resource "google_service_account" "sa" {
   display_name = "Service Account for ${var.service_account_short_name} to be used with workload identity in cluster ${var.cluster_name}"
 }
 
-
-
 # allow the k8s service account to impersonate PoF's service account
 resource "google_service_account_iam_binding" "gsa_ksa_binding" {
   service_account_id = google_service_account.sa.id
@@ -26,10 +24,4 @@ resource "google_project_iam_member" "logging_role"{
   project = data.google_project.project.project_id
   member = "serviceAccount:${google_service_account.sa.email}"
   role = "roles/logging.logWriter"
-}
-
-resource "google_project_iam_member" "logging_view"{
-  project = data.google_project.project.project_id
-  member = "serviceAccount:${google_service_account.sa.email}"
-  role = "roles/logging.viewer"
 }
