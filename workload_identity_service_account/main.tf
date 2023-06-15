@@ -22,3 +22,9 @@ resource "google_project_iam_member" "logging_role"{
   member = "serviceAccount:${google_service_account.sa.email}"
   role = "roles/logging.logWriter"
 }
+
+resource "google_project_iam_member" "logging_role"{
+  project = data.google_project.project.project_id
+  member = "serviceAccount:${google_service_account.sa.email}"
+  role = "roles/monitoring.metricWriter"
+}
