@@ -1,5 +1,5 @@
 # Pubsub subscrption
-Creates a subscription to a pubsub topic, creates a deadletter topic for this subscripton, and allows a service 
+Creates a pull subscription to a pubsub topic, creates a deadletter topic for this subscripton, and allows a service 
 account to access it.
 
 ## Usage

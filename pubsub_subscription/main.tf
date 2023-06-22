@@ -17,6 +17,8 @@ resource "google_pubsub_subscription" "subscription" {
   name  = "${var.environment}_${var.subscription_short_name}"
   topic = var.topic_id
 
+  enable_exactly_once_delivery = var.enable_exactly_once_delivery
+  enable_message_ordering = var.enable_message_ordering
   ack_deadline_seconds = 60
 
   retry_policy {

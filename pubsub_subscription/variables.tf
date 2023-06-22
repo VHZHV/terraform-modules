@@ -22,3 +22,13 @@ variable "subscription_short_name"{
   type = string
   description = "Short name to use in the subscription to identify it. e.g thinghappened"
 }
+
+variable "enable_message_ordering" {
+  type = bool
+  default = false
+}
+
+variable "enable_exactly_once_delivery" {
+  type = bool
+  default = false
+}
