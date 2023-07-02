@@ -28,3 +28,9 @@ resource "google_project_iam_member" "monitoring_role"{
   member = "serviceAccount:${google_service_account.sa.email}"
   role = "roles/monitoring.metricWriter"
 }
+
+resource "google_project_iam_member" "otel_roles" {
+  project = data.google_project.project.project_id
+  role = "roles/cloudtrace.agent"
+  member  = "serviceAccount:${google_service_account.sa.email}"
+}
