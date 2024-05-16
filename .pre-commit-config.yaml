@@ -6,7 +6,6 @@ repos:
       - id: terraform_docs
         args:
           - --hook-config=--add-to-existing-file=true
-          - --hook-config=--create-file-if-not-exist=true
       - id: terraform_docs_without_aggregate_type_defaults
       - id: terraform_fmt
       - id: terraform_validate
