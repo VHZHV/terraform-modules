@@ -6,7 +6,7 @@ repos:
       - id: terraform_docs
         args:
           - --hook-config=--add-to-existing-file=true
-      - id: terraform_docs_without_aggregate_type_defaults
+          - --args=--lockfile=false
       - id: terraform_fmt
       - id: terraform_validate
       - id: terraform_tflint

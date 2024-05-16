@@ -1,13 +1,3 @@
-terraform {
-  required_version = ">=1"
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 5.0"
-    }
-  }
-}
-
 locals {
   pubsubHidden    = "service-${data.google_project.project.number}@gcp-sa-pubsub.iam.gserviceaccount.com"
   serviceAccounts = concat(var.service_account_email_addresses, [local.pubsubHidden])
