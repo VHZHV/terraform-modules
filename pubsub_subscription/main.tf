@@ -1,25 +1,35 @@
+terraform {
+  required_version = ">=1"
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 5.0"
+    }
+  }
+}
+
 locals {
-  pubsubHidden = "service-${data.google_project.project.number}@gcp-sa-pubsub.iam.gserviceaccount.com"
+  pubsubHidden    = "service-${data.google_project.project.number}@gcp-sa-pubsub.iam.gserviceaccount.com"
   serviceAccounts = concat(var.service_account_email_addresses, [local.pubsubHidden])
 }
 
-data google_project "project"{
+data "google_project" "project" {
   project_id = var.project_id
 }
 
 resource "google_pubsub_topic" "deadletter_topic" {
   project = data.google_project.project.project_id
-  name = "${var.environment}_${var.subscription_short_name}-deadletters"
+  name    = "${var.environment}_${var.subscription_short_name}-deadletters"
 }
 
 resource "google_pubsub_subscription" "subscription" {
   project = data.google_project.project.project_id
-  name  = "${var.environment}_${var.subscription_short_name}"
-  topic = var.topic_id
+  name    = "${var.environment}_${var.subscription_short_name}"
+  topic   = var.topic_id
 
   enable_exactly_once_delivery = var.enable_exactly_once_delivery
-  enable_message_ordering = var.enable_message_ordering
-  ack_deadline_seconds = 60
+  enable_message_ordering      = var.enable_message_ordering
+  ack_deadline_seconds         = 60
 
   retry_policy {
     minimum_backoff = "10s"
@@ -46,4 +56,3 @@ resource "google_pubsub_subscription_iam_binding" "subscription_access" {
 
   members = [for serviceAccount in local.serviceAccounts : "serviceAccount:${serviceAccount}"]
 }
-
