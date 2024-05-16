@@ -40,8 +40,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_enable_exactly_once_delivery"></a> [enable\_exactly\_once\_delivery](#input\_enable\_exactly\_once\_delivery) | n/a | `bool` | `false` | no |
-| <a name="input_enable_message_ordering"></a> [enable\_message\_ordering](#input\_enable\_message\_ordering) | n/a | `bool` | `false` | no |
+| <a name="input_enable_exactly_once_delivery"></a> [enable\_exactly\_once\_delivery](#input\_enable\_exactly\_once\_delivery) | https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription#enable_exactly_once_delivery | `bool` | `false` | no |
+| <a name="input_enable_message_ordering"></a> [enable\_message\_ordering](#input\_enable\_message\_ordering) | https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription#enable_message_ordering | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Name of the environment, will be included in resource names | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | GCP project id | `string` | n/a | yes |
 | <a name="input_service_account_email_addresses"></a> [service\_account\_email\_addresses](#input\_service\_account\_email\_addresses) | service accounts that will use the subscription, the pubsub service account for this project will be auto-included | `list(string)` | n/a | yes |
@@ -52,6 +52,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_deadletter_topic"></a> [deadletter\_topic](#output\_deadletter\_topic) | n/a |
-| <a name="output_subscription"></a> [subscription](#output\_subscription) | n/a |
+| <a name="output_deadletter_topic"></a> [deadletter\_topic](#output\_deadletter\_topic) | The deadletter topic created for the subscription |
+| <a name="output_subscription"></a> [subscription](#output\_subscription) | The subscription created for the topic |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

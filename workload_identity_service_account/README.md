@@ -33,15 +33,15 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | n/a | `string` | n/a | yes |
-| <a name="input_environment"></a> [environment](#input\_environment) | n/a | `string` | n/a | yes |
-| <a name="input_k8s_namespace"></a> [k8s\_namespace](#input\_k8s\_namespace) | n/a | `string` | `"default"` | no |
-| <a name="input_project_id"></a> [project\_id](#input\_project\_id) | n/a | `string` | n/a | yes |
-| <a name="input_service_account_short_name"></a> [service\_account\_short\_name](#input\_service\_account\_short\_name) | n/a | `string` | n/a | yes |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Name of the cluster, will be included in resource names | `string` | n/a | yes |
+| <a name="input_environment"></a> [environment](#input\_environment) | Name of the environment, will be included in resource names | `string` | n/a | yes |
+| <a name="input_k8s_namespace"></a> [k8s\_namespace](#input\_k8s\_namespace) | The namespace of the k8s service account | `string` | `"default"` | no |
+| <a name="input_project_id"></a> [project\_id](#input\_project\_id) | GCP project id | `string` | n/a | yes |
+| <a name="input_service_account_short_name"></a> [service\_account\_short\_name](#input\_service\_account\_short\_name) | Service account name to be used with workload identity in cluster | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_service_account"></a> [service\_account](#output\_service\_account) | n/a |
+| <a name="output_service_account"></a> [service\_account](#output\_service\_account) | The service account created for the workload identity pool |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

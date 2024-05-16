@@ -24,11 +24,13 @@ variable "subscription_short_name" {
 }
 
 variable "enable_message_ordering" {
-  type    = bool
-  default = false
+  type        = bool
+  default     = false
+  description = "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription#enable_message_ordering"
 }
 
 variable "enable_exactly_once_delivery" {
-  type    = bool
-  default = false
+  type        = bool
+  default     = false
+  description = "https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription#enable_exactly_once_delivery"
 }
