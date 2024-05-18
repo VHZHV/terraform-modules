@@ -1,0 +1,15 @@
+---
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /pubsub_subscription
+    schedule:
+      interval: daily
+  - package-ecosystem: terraform
+    directory: /workload_identity_service_account
+    schedule:
+      interval: daily
