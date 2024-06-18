@@ -8,17 +8,20 @@ updates:
       time: "05:00"
       timezone: Europe/London
       day: monday
+    groups:
+      all:
+        patterns:
+          - "*"
   - package-ecosystem: terraform
-    directory: /pubsub_subscription
+    directories:
+      - /pubsub_subscription
+      - /workload_identity_service_account
     schedule:
       interval: weekly
       time: "05:00"
       timezone: Europe/London
       day: monday
-  - package-ecosystem: terraform
-    directory: /workload_identity_service_account
-    schedule:
-      interval: weekly
-      time: "05:00"
-      timezone: Europe/London
-      day: monday
+    groups:
+      all:
+        patterns:
+          - "*"
