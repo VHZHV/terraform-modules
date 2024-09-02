@@ -8,9 +8,9 @@ data "google_project" "project" {
 }
 
 resource "google_pubsub_topic" "deadletter_topic" {
-  project = data.google_project.project.project_id
+  project                    = data.google_project.project.project_id
   message_retention_duration = "2592000s"
-  name    = "${var.environment}_${var.subscription_short_name}-deadletters"
+  name                       = "${var.environment}_${var.subscription_short_name}-deadletters"
 }
 
 resource "google_pubsub_subscription" "subscription" {

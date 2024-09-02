@@ -8,19 +8,19 @@ See simple example
 ## Why not use the default resources?
 * it's annoying to remember each time to do the IAM binding, typically you want a service account to access the queue
  
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 5.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 6.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | ~> 5.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | ~> 6.0 |
 
 ## Modules
 
@@ -54,4 +54,4 @@ No modules.
 |------|-------------|
 | <a name="output_deadletter_topic"></a> [deadletter\_topic](#output\_deadletter\_topic) | The deadletter topic created for the subscription |
 | <a name="output_subscription"></a> [subscription](#output\_subscription) | The subscription created for the topic |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->

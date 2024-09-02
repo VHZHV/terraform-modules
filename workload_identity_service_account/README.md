@@ -1,18 +1,18 @@
 # workload_identity_service_account
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 5.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 6.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | ~> 5.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | ~> 6.0 |
 
 ## Modules
 
@@ -44,4 +44,4 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_service_account"></a> [service\_account](#output\_service\_account) | The service account created for the workload identity pool |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
