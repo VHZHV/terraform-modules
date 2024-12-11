@@ -1,7 +1,7 @@
 # docker run --pull=always -e "USERID=$(id -u):$(id -g)" -v $(pwd):/lint -w /lint ghcr.io/antonbabenko/pre-commit-terraform:latest run --all-files
 repos:
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: "v1.96.1"
+    rev: "v1.96.2"
     hooks:
       - id: terraform_validate
         args:
@@ -11,11 +11,10 @@ repos:
           - --hook-config=--mode=only-check-is-current-lockfile-cross-platform
       - id: terraform_fmt
       - id: terraform_tflint
-        # Seems to currently have a problem with intermittent failures
-      #      - id: terraform_trivy
-      #        args:
-      #          - --args=--severity=MEDIUM,HIGH,CRITICAL
-      #          - --args=--skip-dirs="**/.terraform"
+      - id: terraform_trivy
+        args:
+          - --args=--severity=MEDIUM,HIGH,CRITICAL
+          - --args=--skip-dirs="**/.terraform"
       - id: terraform_docs
         args:
           - --hook-config=--add-to-existing-file=true
