@@ -16,6 +16,19 @@ updates:
     directories:
       - /pubsub_subscription
       - /workload_identity_service_account
+      - /cloud-sql-permissions
+    schedule:
+      interval: weekly
+      time: "05:00"
+      timezone: Europe/London
+      day: monday
+    groups:
+      all:
+        patterns:
+          - "*"
+  - package-ecosystem: npm
+    directories:
+      - /cloud-sql-permissions/scripts/grant_sql_access
     schedule:
       interval: weekly
       time: "05:00"
