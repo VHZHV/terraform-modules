@@ -13,7 +13,7 @@ terraform {
 }
 
 resource "google_sql_user" "app_user" {
-  name = trimsuffix(var.service_account_email, ".gserviceaccount.com")
+  name     = trimsuffix(var.service_account_email, ".gserviceaccount.com")
   instance = reverse(split(":", var.instance_connection_name))[0]
   type     = "CLOUD_IAM_SERVICE_ACCOUNT"
 }
@@ -29,7 +29,7 @@ locals {
         var.user_password,
         var.database_name,
         var.service_account_email,
-      ]
+      ],
       var.extra_commands,
     )
   )
@@ -49,7 +49,7 @@ resource "null_resource" "run_grant_sql_access" {
       USER_PASSWORD            = var.user_password
       DATABASE_NAME            = var.database_name
       APP_USERNAME             = google_sql_user.app_user.name
-      EXTRA_COMMANDS = join("", var.extra_commands)
+      EXTRA_COMMANDS           = join("", var.extra_commands)
     }
   }
 }
