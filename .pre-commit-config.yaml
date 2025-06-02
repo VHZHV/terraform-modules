@@ -1,7 +1,7 @@
 # docker run --pull=always -e "USERID=$(id -u):$(id -g)" -v $(pwd):/lint -w /lint ghcr.io/antonbabenko/pre-commit-terraform:latest run --all-files
 repos:
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: "v1.96.2"
+    rev: "v1.99.1"
     hooks:
       - id: terraform_validate
         args:
