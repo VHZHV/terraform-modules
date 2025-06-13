@@ -1,3 +1,29 @@
+module "dns_zone" {
+  source  = "terraform-google-modules/cloud-dns/google"
+  version = "6.0.0"
+
+  project_id = var.project_id
+  type       = "public"
+  name       = var.dns_zone_name
+  domain     = "${var.top_level_domain_name}."
+
+  dnssec_config = {
+    state = "on"
+  }
+}
+
+resource "google_dns_record_set" "domain" {
+  project = var.dns_record_project
+
+  managed_zone = var.dns_record_managed_zone
+
+  name    = "${var.top_level_domain_name}."
+  type    = "NS"
+  ttl     = 300
+  rrdatas = module.dns_zone.name_servers
+}
+
+
 module "vpc" {
   source  = "terraform-google-modules/network/google"
   version = "11.1.1"
