@@ -29,20 +29,22 @@ variable "subnet_name_suffix" {
 }
 
 variable "dns_zone_name" {
-  type = string
+  description = "Name of the DNS zone to be created."
+  type        = string
 }
 
 variable "top_level_domain_name" {
-  type = string
+  description = "Top level domain name for the DNS zone. Something like 'console.hozah.com'."
+  type        = string
 }
-
 
 variable "dns_record_project" {
-  type = string
+  description = "Project where the DNS record will be created. Typically parking."
+  type        = string
 }
 
-
 variable "dns_record_managed_zone" {
-  type = string
+  description = "Managed zone where the DNS record will be created. Typically 'hozahproduction'."
+  type        = string
 }
 
