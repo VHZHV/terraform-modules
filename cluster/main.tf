@@ -1,3 +1,6 @@
+# trivy:ignore:avd-gcp-0057 - This is a false positive, as this does end up using GKE_METADATA
+# trivy:ignore:avd-gcp-0059 - We want this to cluster to have services that can be accessed from the internet
+# trivy:ignore:avd-gcp-0061 - We want this in case someone on support needs to access the cluster
 module "gke" {
   source  = "terraform-google-modules/kubernetes-engine/google"
   version = "36.3.0"
@@ -9,6 +12,7 @@ module "gke" {
   region   = var.region
   zones    = var.cluster_zones
 
+  network_policy    = true
   network           = var.network_name
   subnetwork        = var.subnet_name
   ip_range_pods     = var.ip_range_pods_name

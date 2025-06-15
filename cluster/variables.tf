@@ -38,7 +38,7 @@ variable "cluster_name" {
   type = string
 }
 variable "cluster_zones" {
-  type = string
+  type = list(string)
 }
 variable "network_name" {
   type = string
