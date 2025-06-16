@@ -10,7 +10,7 @@ variable "region" {
 
 variable "cluster_regional" {
   type        = bool
-  description = "Whether is a regional cluster (zonal cluster if set false."
+  description = "Whether is a regional cluster (zonal cluster if set to false)."
 }
 
 variable "cluster_autoscaling_profile" {
