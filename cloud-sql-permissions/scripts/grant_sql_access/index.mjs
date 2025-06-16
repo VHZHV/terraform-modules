@@ -16,15 +16,13 @@ const pool = new Pool({
   max: 5,
 });
 
-await Promise.all(
-  process.env.EXTRA_COMMANDS.split(";")
-    .filter((o) => o !== "")
-    .map((command) =>
-      pool.query(
-        `${command.replaceAll("APP_USERNAME", `"${process.env.APP_USERNAME}"`)};`,
-      )
-    )
-);
+process.env.EXTRA_COMMANDS.split(";")
+  .filter((o) => o !== "")
+  .forEach(async (command) => {
+    await pool.query(
+      `${command.replaceAll("APP_USERNAME", `"${process.env.APP_USERNAME}"`)};`,
+    );
+  });
 await pool.query(
   `GRANT pg_read_all_data, pg_write_all_data TO "${process.env.APP_USERNAME}";`,
 );
