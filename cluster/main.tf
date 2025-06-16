@@ -1,3 +1,4 @@
+# trivy:ignore:avd-gcp-0056 - Require this to be able to get artifacts from the registry
 # trivy:ignore:avd-gcp-0057 - This is a false positive, as this does end up using GKE_METADATA
 # trivy:ignore:avd-gcp-0059 - We want this cluster to have services that can be accessed from the internet
 # trivy:ignore:avd-gcp-0061 - We want this in case someone on support needs to access the cluster
@@ -12,7 +13,6 @@ module "gke" {
   region   = var.region
   zones    = var.cluster_zones
 
-  network_policy    = true
   network           = var.network_name
   subnetwork        = var.subnet_name
   ip_range_pods     = var.ip_range_pods_name
