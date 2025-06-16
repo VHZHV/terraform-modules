@@ -1,0 +1,32 @@
+---
+version: v1.0
+name: Build
+agent:
+  machine:
+    type: e1-standard-2
+
+auto_cancel:
+  queued:
+    when: "true"
+fail_fast:
+  stop:
+    when: "true"
+
+global_job_config:
+  prologue:
+    commands_file: commands/set_vars_and_checkout.sh
+
+blocks:
+  - name: Test
+    dependencies: []
+    task:
+      secrets:
+        - name: artifacts
+      jobs:
+        - name: Terraform
+          commands:
+            - wait
+
+            - cd "${REPO_NAME}"
+
+            - docker run --pull=always -e "USERID=$(id -u):$(id -g)" -v $(pwd):/lint -w /lint ghcr.io/antonbabenko/pre-commit-terraform:latest run --all-files
