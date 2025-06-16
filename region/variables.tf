@@ -2,8 +2,13 @@ variable "project_id" {
   type        = string
   description = "The project ID to host the cluster in"
 }
+variable "name" {
+  type        = string
+  description = "The name of the cluster, will be used to generate the cluster name and database name."
+}
 variable "region" {
-  type = string
+  description = "The region to host the cluster in, e.g. europe-west4"
+  type        = string
 }
 variable "cluster_regional" {
   type        = bool

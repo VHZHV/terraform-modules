@@ -1,9 +1,9 @@
 output "cluster_name" {
-  value = "anpr-${local.region_short}"
+  value = "${var.name}-${local.region_short}"
 }
 
 output "db_name" {
-  value = "anpr-${local.region_short}"
+  value = "${var.name}-${local.region_short}"
 }
 
 output "region_short" {
