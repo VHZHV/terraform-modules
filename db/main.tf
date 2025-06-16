@@ -88,6 +88,10 @@ module "sql-db_postgresql" {
       value : "on"
     },
     {
+      name : "log_temp_files",
+      value : "0"
+    },
+    {
       name : "max_connections",
       value : "2000"
     },
