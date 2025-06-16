@@ -14,9 +14,16 @@ updates:
           - "*"
   - package-ecosystem: terraform
     directories:
-      - /pubsub_subscription
-      - /workload_identity_service_account
+      - /cert-manager
       - /cloud-sql-permissions
+      - /cluster
+      - /helm-provider
+      - /opentelemetry-operator
+      - /otel-sidecar-config
+      - /project_network
+      - /pubsub_subscription
+      - /region
+      - /workload_identity_service_account
     schedule:
       interval: weekly
       time: "05:00"
