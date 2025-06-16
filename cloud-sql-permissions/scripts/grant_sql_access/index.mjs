@@ -1,12 +1,12 @@
-import pg from 'pg';
-import {Connector} from '@google-cloud/cloud-sql-connector';
+import pg from "pg";
+import { Connector } from "@google-cloud/cloud-sql-connector";
 
-const {Pool} = pg;
+const { Pool } = pg;
 
 const connector = new Connector();
 const clientOpts = await connector.getOptions({
   instanceConnectionName: process.env.INSTANCE_CONNECTION_NAME,
-  ipType: 'PUBLIC',
+  ipType: "PUBLIC",
 });
 const pool = new Pool({
   ...clientOpts,
@@ -16,12 +16,20 @@ const pool = new Pool({
   max: 5,
 });
 
-process.env.EXTRA_COMMANDS.split(';').filter(o => o !== "").forEach(async (command) => {
-  await pool.query(`${command.replaceAll("APP_USERNAME", `"${process.env.APP_USERNAME}"`)};`);
-});
-await pool.query(`GRANT pg_read_all_data, pg_write_all_data TO "${process.env.APP_USERNAME}";`);
+process.env.EXTRA_COMMANDS.split(";")
+  .filter((o) => o !== "")
+  .forEach(async (command) => {
+    await pool.query(
+      `${command.replaceAll("APP_USERNAME", `"${process.env.APP_USERNAME}"`)};`,
+    );
+  });
+await pool.query(
+  `GRANT pg_read_all_data, pg_write_all_data TO "${process.env.APP_USERNAME}";`,
+);
 
-await pool.query(`GRANT pg_read_all_data, pg_write_all_data TO "${process.env.USER_NAME}";`);
+await pool.query(
+  `GRANT pg_read_all_data, pg_write_all_data TO "${process.env.USER_NAME}";`,
+);
 
 await pool.end();
 connector.close();
