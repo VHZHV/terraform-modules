@@ -12,7 +12,6 @@ module "gke" {
   region   = var.region
   zones    = var.cluster_zones
 
-  network_policy    = true
   network           = var.network_name
   subnetwork        = var.subnet_name
   ip_range_pods     = var.ip_range_pods_name
