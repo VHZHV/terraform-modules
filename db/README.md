@@ -1,4 +1,4 @@
-# cluster
+# db
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
