@@ -4,11 +4,9 @@ variable "project_id" {
 }
 
 variable "cluster_location" {
-  type        = string
-  description = "The region to host the cluster in"
+  type = string
 }
 
 variable "cluster_name" {
-  type        = bool
-  description = "Whether is a regional cluster (zonal cluster if set false."
+  type = string
 }
