@@ -1,5 +1,3 @@
-provider "google" {}
-
 provider "helm" {
   debug = true
   kubernetes {
