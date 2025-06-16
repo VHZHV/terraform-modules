@@ -29,10 +29,10 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cluster_regional"></a> [cluster\_regional](#input\_cluster\_regional) | Whether is a regional cluster (zonal cluster if set false. | `bool` | n/a | yes |
-| <a name="input_cluster_zone_selector"></a> [cluster\_zone\_selector](#input\_cluster\_zone\_selector) | n/a | `string` | n/a | yes |
+| <a name="input_cluster_zone_selector"></a> [cluster\_zone\_selector](#input\_cluster\_zone\_selector) | Selector for the cluster zone, either a number or '*' for all zones in the region. | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The project ID to host the cluster in | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | n/a | `string` | n/a | yes |
-| <a name="input_subnet_name_suffix"></a> [subnet\_name\_suffix](#input\_subnet\_name\_suffix) | n/a | `string` | n/a | yes |
+| <a name="input_subnet_name_suffix"></a> [subnet\_name\_suffix](#input\_subnet\_name\_suffix) | Suffix for the subnet name, will be appended to the region name. | `string` | n/a | yes |
 
 ## Outputs
 

@@ -35,24 +35,31 @@ variable "cluster_autoscaling_enabled" {
 }
 
 variable "cluster_name" {
-  type = string
+  description = "The name of the cluster to create"
+  type        = string
 }
 variable "cluster_zones" {
-  type = list(string)
+  description = "The zones to create the cluster in, if regional is false"
+  type        = list(string)
 }
 variable "network_name" {
-  type = string
+  description = "The name of the network to create the cluster in"
+  type        = string
 }
 variable "subnet_name" {
-  type = string
+  description = "The name of the subnet to create the cluster in"
+  type        = string
 }
 variable "ip_range_pods_name" {
-  type = string
+  description = "The name of the IP range for pods in the cluster"
+  type        = string
 }
 variable "ip_range_services_name" {
-  type = string
+  description = "The name of the IP range for services in the cluster"
+  type        = string
 }
 
 variable "label" {
-  type = string
+  description = "The label to use for the cluster"
+  type        = string
 }

@@ -10,10 +10,12 @@ variable "cluster_regional" {
   description = "Whether is a regional cluster (zonal cluster if set false."
 }
 variable "cluster_zone_selector" {
-  type = string
+  description = "Selector for the cluster zone, either a number or '*' for all zones in the region."
+  type        = string
 }
 variable "subnet_name_suffix" {
-  type = string
+  description = "Suffix for the subnet name, will be appended to the region name."
+  type        = string
 }
 
 locals {

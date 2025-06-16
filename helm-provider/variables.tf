@@ -4,9 +4,11 @@ variable "project_id" {
 }
 
 variable "cluster_location" {
-  type = string
+  description = "The location of the cluster, either a region or a zone"
+  type        = string
 }
 
 variable "cluster_name" {
-  type = string
+  description = "The name of the cluster to connect to"
+  type        = string
 }
