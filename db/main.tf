@@ -31,10 +31,10 @@ module "sql-db_postgresql" {
   enable_default_db   = false
   enable_default_user = false
 
-  deletion_protection                      = false
-  deletion_protection_enabled              = false
-  read_replica_deletion_protection         = true
-  read_replica_deletion_protection_enabled = true
+  deletion_protection                      = var.deletion_protection
+  deletion_protection_enabled              = var.deletion_protection
+  read_replica_deletion_protection         = var.deletion_protection
+  read_replica_deletion_protection_enabled = var.deletion_protection
 
   password_validation_policy_config = {
     min_length                  = 30
