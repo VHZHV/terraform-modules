@@ -1,3 +1,3 @@
 output "id" {
-  value = module.dead_letter_topic_pubsub.id
+  value = "projects/${var.project_id}/topics/${local.topic_name}"
 }

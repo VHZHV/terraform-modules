@@ -1,5 +1,6 @@
 locals {
   dead_letter_topic_suffix = "-dlq" # Configured to match with naming convention for alerting
+  topic_name               = "${var.root_topic_name}${local.dead_letter_topic_suffix}"
 }
 
 # trivy:ignore:avd-gcp-0011 This is part of the module, and only adds it the pubsub project account
@@ -7,7 +8,7 @@ module "dead_letter_topic_pubsub" {
   source  = "terraform-google-modules/pubsub/google"
   version = "8.2.0"
 
-  topic                            = "${var.root_topic_name}${local.dead_letter_topic_suffix}"
+  topic                            = local.topic_name
   project_id                       = var.project_id
   topic_message_retention_duration = var.message_retention_duration
 
