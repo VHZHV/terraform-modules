@@ -36,6 +36,11 @@ variable "deletion_protection" {
   type        = bool
   description = "Whether to enable deletion protection for the database."
 }
+variable "tier" {
+  description = "The tier for the Cloud SQL instance."
+  type        = string
+  default     = "db-f1-micro"
+}
 locals {
   zones   = data.google_compute_zones.available.names
   db_zone = var.db_zone_selector == "*" ? null : local.zones[tonumber(var.db_zone_selector)]

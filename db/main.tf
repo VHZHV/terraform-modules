@@ -25,6 +25,7 @@ module "sql-db_postgresql" {
   database_version  = "POSTGRES_17"
   region            = var.region
   zone              = local.db_zone
+  tier              = var.tier
   availability_type = var.db_available_type
   edition           = "ENTERPRISE"
 
