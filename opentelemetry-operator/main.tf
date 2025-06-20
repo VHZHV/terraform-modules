@@ -4,8 +4,8 @@ resource "helm_release" "k8s_operator_for_opentelemetry" {
   chart            = "opentelemetry-operator"
   version          = "0.90.3"
   create_namespace = true
-  set {
+  set = [{
     name  = "manager.collectorImage.repository"
     value = "otel/opentelemetry-collector-contrib"
-  }
+  }]
 }
