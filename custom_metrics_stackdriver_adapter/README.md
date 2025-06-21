@@ -1,4 +1,4 @@
-# otel-sidecar-config
+# # Custom Metrics Stackdriver Adapter
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
