@@ -1,4 +1,4 @@
-# # Custom Metrics Stackdriver Adapter
+# Custom Metrics Stackdriver Adapter
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
