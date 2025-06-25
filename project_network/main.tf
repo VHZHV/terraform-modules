@@ -46,11 +46,11 @@ module "vpc" {
     for idx, region in var.regions : "${region}-${var.subnet_name_suffix}" => [
       {
         range_name    = var.ip_range_pods_name
-        ip_cidr_range = "192.168.${idx * 16}.0/21"
+        ip_cidr_range = "192.168.${idx * 64}.0/19"
       },
       {
         range_name    = var.ip_range_services_name
-        ip_cidr_range = "192.168.${(idx * 16) + 8}.0/21"
+        ip_cidr_range = "192.168.${(idx * 64) + 32}.0/24"
       },
     ]
   }
