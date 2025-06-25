@@ -50,7 +50,7 @@ module "vpc" {
       },
       {
         range_name    = var.ip_range_services_name
-        ip_cidr_range = "192.168.${(idx * 64) + 32}.0/24"
+        ip_cidr_range = "192.168.${(idx * 64) + 32}.0/19"
       },
     ]
   }
