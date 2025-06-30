@@ -60,7 +60,7 @@ module "private-service-access" {
   depends_on = [module.vpc]
 
   source  = "terraform-google-modules/sql-db/google//modules/private_service_access"
-  version = "25.2.2"
+  version = "26.1.0"
 
   project_id      = var.project_id
   vpc_network     = module.vpc.network_name
