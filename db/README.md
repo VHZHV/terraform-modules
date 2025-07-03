@@ -41,5 +41,9 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_database_name"></a> [database\_name](#output\_database\_name) | n/a |
+| <a name="output_user_name"></a> [user\_name](#output\_user\_name) | n/a |
+| <a name="output_user_password"></a> [user\_password](#output\_user\_password) | n/a |
 <!-- END_TF_DOCS -->
