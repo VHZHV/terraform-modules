@@ -1,4 +1,4 @@
-# Custom Metrics Stackdriver Adapter
+# Database
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
