@@ -1,4 +1,4 @@
-# db
+# Database
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -7,40 +7,37 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | ~> 6.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_google"></a> [google](#provider\_google) | ~> 6.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | ~> 3.0 |
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_sql-db_postgresql"></a> [sql-db\_postgresql](#module\_sql-db\_postgresql) | terraform-google-modules/sql-db/google//modules/postgresql | 25.2.2 |
+No modules.
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [google_compute_network.network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_network) | data source |
-| [google_compute_zones.available](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_zones) | data source |
+| [google_sql_database.main_database](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database) | resource |
+| [google_sql_user.admin_user](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_user) | resource |
+| [random_password.admin_user_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
+| [random_shuffle.password_length](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/shuffle) | resource |
+| [google_sql_database_instance.console](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/sql_database_instance) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_db_available_type"></a> [db\_available\_type](#input\_db\_available\_type) | Defines possible options for autoscalingProfile field. | `string` | n/a | yes |
-| <a name="input_db_backup"></a> [db\_backup](#input\_db\_backup) | Whether to enable database backup. | `bool` | n/a | yes |
-| <a name="input_db_insights"></a> [db\_insights](#input\_db\_insights) | Whether to enable database insights. | `bool` | n/a | yes |
-| <a name="input_db_name"></a> [db\_name](#input\_db\_name) | The name of the database to create | `string` | n/a | yes |
-| <a name="input_db_zone_selector"></a> [db\_zone\_selector](#input\_db\_zone\_selector) | Zone selector for the database. If set to *, all zones will be used. | `string` | n/a | yes |
-| <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | Whether to enable deletion protection for the database. | `bool` | n/a | yes |
-| <a name="input_network_name"></a> [network\_name](#input\_network\_name) | The name of the network to use for the database | `string` | n/a | yes |
-| <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The project ID to host the db in | `string` | n/a | yes |
-| <a name="input_region"></a> [region](#input\_region) | The region to host the db in | `string` | n/a | yes |
-| <a name="input_tier"></a> [tier](#input\_tier) | The tier for the Cloud SQL instance. | `string` | `"db-f1-micro"` | no |
+| <a name="input_cloud_sql_instance_name"></a> [cloud\_sql\_instance\_name](#input\_cloud\_sql\_instance\_name) | Name of the Cloud SQL instance. | `string` | n/a | yes |
+| <a name="input_database_name"></a> [database\_name](#input\_database\_name) | Name of the database to be created in the Cloud SQL instance. | `string` | n/a | yes |
+| <a name="input_deletable"></a> [deletable](#input\_deletable) | Flag to indicate if the database can be deleted. | `bool` | n/a | yes |
+| <a name="input_project_id"></a> [project\_id](#input\_project\_id) | Project id where environment will be deployed. | `string` | n/a | yes |
 
 ## Outputs
 
