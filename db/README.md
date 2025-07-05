@@ -28,7 +28,6 @@ No modules.
 | [google_sql_user.admin_user](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_user) | resource |
 | [random_password.admin_user_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [random_shuffle.password_length](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/shuffle) | resource |
-| [google_sql_database_instance.console](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/sql_database_instance) | data source |
 
 ## Inputs
 
