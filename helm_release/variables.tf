@@ -22,6 +22,3 @@ variable "chart" {
 variable "docker_registry" {
   type = string
 }
-variable "chart_location" {
-  type = string
-}

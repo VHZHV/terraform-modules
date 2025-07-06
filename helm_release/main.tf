@@ -1,11 +1,12 @@
 locals {
-  chart_name = join("-", split("/", var.chart_location))
+  chart_name     = split("/kube-", var.chart)[1]
+  chart_location = "kube/${local.chart_name}"
 }
 
 resource "helm_release" "chart" {
-  name       = local.chart_name
   repository = "oci://${var.docker_registry}"
   chart      = var.chart
+  name       = "kube-${local.chart_name}"
   version    = var.version_tag
   namespace  = var.k8s_namespace
 
@@ -18,7 +19,7 @@ resource "helm_release" "chart" {
     {
       name = "chartHash"
       value = sha1(join("", [
-        for f in fileset("../../${var.chart_location}", "**/*.yaml") : filesha1("../../${var.chart_location}/${f}")
+        for f in fileset("../../${local.chart_location}", "**/*.yaml") : filesha1("../../${local.chart_location}/${f}")
       ]))
     }
   ]
