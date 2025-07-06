@@ -35,5 +35,7 @@ No resources.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_details"></a> [details](#output\_details) | n/a |
 <!-- END_TF_DOCS -->
