@@ -11,7 +11,7 @@ variable "dns_domain" {
 variable "dns_managed_zone" {
   type = string
 }
-variable "dns_names" {
+variable "domains" {
   type = list(string)
 }
 
