@@ -1,5 +1,5 @@
 locals {
-  dns_names = [for dns_name in var.domains : replace(dns_name, var.dns_domain, "")]
+  dns_names = [for dns_name in var.domains : replace(dns_name, ".${var.dns_domain}", "")]
 }
 
 module "ip_addresses" {
