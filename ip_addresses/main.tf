@@ -3,7 +3,7 @@ locals {
 }
 
 output "dns_names" {
-  value = "dns_names"
+  value = local.dns_names
 }
 
 module "ip_addresses" {
