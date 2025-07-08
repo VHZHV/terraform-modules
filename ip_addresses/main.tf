@@ -2,6 +2,10 @@ locals {
   dns_names = [for dns_name in var.domains : trim(replace(dns_name, var.dns_domain, ""), ".")]
 }
 
+output "dns_names" {
+  value = "dns_names"
+}
+
 module "ip_addresses" {
   source  = "terraform-google-modules/address/google"
   version = "4.1.0"
