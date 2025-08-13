@@ -1,4 +1,4 @@
-resource "kubernetes_config_map" "otel_sidecar_config" {
+resource "kubernetes_config_map_v1" "otel_sidecar_config" {
   metadata {
     name      = "otel-sidecar-config"
     namespace = var.k8s_namespace
