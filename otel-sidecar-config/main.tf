@@ -4,7 +4,7 @@ locals {
 
 resource "helm_release" "otel_sidecar_config" {
   name  = "otel-collector-sidecar"
-  chart = "./chart"
+  chart = "${path.module}/chart"
 
   namespace        = var.k8s_namespace
   create_namespace = true
