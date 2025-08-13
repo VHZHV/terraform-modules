@@ -1,4 +1,9 @@
 variable "k8s_namespace" {
   type        = string
-  description = "The Kubernetes namespace where the Helm release will be deployed."
+  description = "Kubernetes namespace."
+}
+
+variable "telemetry_enabled" {
+  type        = bool
+  description = "Enable telemetry"
 }
