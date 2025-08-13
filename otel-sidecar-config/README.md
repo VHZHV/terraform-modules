@@ -22,7 +22,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [kubernetes_config_map_v1.otel_sidecar_config](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map_v1) | resource |
+| [kubernetes_config_map.otel_sidecar_config](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/config_map) | resource |
 
 ## Inputs
 
