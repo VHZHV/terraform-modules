@@ -4,7 +4,7 @@ resource "kubernetes_config_map" "otel_sidecar_config" {
     namespace = var.k8s_namespace
 
     labels = {
-      maintained_by = "terraform"
+      "app.kubernetes.io/managed-by" = "Terraform"
     }
   }
 
