@@ -6,7 +6,7 @@ resource "kubernetes_config_map" "otel_sidecar_config" {
 
   data = {
     OTEL_RESOURCE_PROVIDERS_GCP_ENABLED     = "true"
-    OTEL_JAVAAGENT_ENABLED                  = "{{ .Values.telemetry.enabled }}"
+    OTEL_JAVAAGENT_ENABLED                  = var.telemetry_enabled
     OTEL_INSTRUMENTATION_MICROMETER_ENABLED = "true"
     # For some reason these are needed to be set, the defaults don't seem to be defaults, I am guessing because of the buildpack
     # https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#exporter-selection
