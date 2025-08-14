@@ -1,0 +1,6 @@
+---
+apiVersion: v2
+name: otel-sidecar-config
+description: A Helm chart for Console's per-environment
+type: application
+version: 0.1.0
