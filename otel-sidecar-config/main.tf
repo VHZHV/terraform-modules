@@ -1,19 +1,24 @@
-resource "kubernetes_config_map" "otel_sidecar_config" {
-  metadata {
-    name      = "otel-sidecar-config"
-    namespace = var.k8s_namespace
+locals {
+  otel_sidecar_config_name = "otel-sidecar-config"
+}
 
-    labels = {
-      "app.kubernetes.io/managed-by" = "Terraform"
-    }
-  }
+resource "helm_release" "otel_sidecar_config" {
+  name  = "otel-sidecar-config"
+  chart = "${path.module}/chart"
 
-  data = {
-    OTEL_RESOURCE_PROVIDERS_GCP_ENABLED     = "true"
-    OTEL_JAVAAGENT_ENABLED                  = var.telemetry_enabled
-    OTEL_INSTRUMENTATION_MICROMETER_ENABLED = "true"
-    OTEL_TRACES_EXPORTER                    = "otlp"
-    OTEL_METRICS_EXPORTER                   = "otlp"
-    OTEL_LOGS_EXPORTER                      = "otlp"
-  }
+  namespace        = var.k8s_namespace
+  create_namespace = true
+
+  values = [
+    yamlencode(merge(
+      {
+        telemetry = {
+          enabled = var.telemetry_enabled
+        },
+        otel_sidecar_config = {
+          name = local.otel_sidecar_config_name
+        }
+      },
+    )),
+  ]
 }
