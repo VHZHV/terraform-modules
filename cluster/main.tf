@@ -4,7 +4,7 @@
 # trivy:ignore:avd-gcp-0061 - We want this in case someone on support needs to access the cluster
 module "gke" {
   source  = "terraform-google-modules/kubernetes-engine/google"
-  version = "37.1.0"
+  version = "38.0.0"
 
   project_id = var.project_id
   name       = var.cluster_name
