@@ -17,13 +17,22 @@ updates:
       - /cert-manager
       - /cloud-sql-permissions
       - /cluster
+      - /custom_metrics_stackdriver_adapter
+      - /db
+      - /dead_letter_topic
       - /helm-provider
+      - /helm_release
+      - /ip_addresses
       - /opentelemetry-operator
+      - /otel-collector-sidecar
       - /otel-sidecar-config
       - /project_network
       - /pubsub_subscription
+      - /pubsub_subscription/examples/simple_example
       - /region
+      - /sql-postgres
       - /workload_identity_service_account
+      - /workload_identity_service_account/examples/simple_example
     schedule:
       interval: weekly
       time: "05:00"
