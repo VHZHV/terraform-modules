@@ -95,7 +95,7 @@ module "sql-db_postgresql" {
     },
     {
       name : "max_connections",
-      value : "2000"
+      value : var.max_connections
     },
     {
       name : "log_connections",

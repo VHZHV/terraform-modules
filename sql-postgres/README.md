@@ -37,6 +37,7 @@
 | <a name="input_db_name"></a> [db\_name](#input\_db\_name) | The name of the database to create | `string` | n/a | yes |
 | <a name="input_db_zone_selector"></a> [db\_zone\_selector](#input\_db\_zone\_selector) | Zone selector for the database. If set to *, all zones will be used. | `string` | n/a | yes |
 | <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | Whether to enable deletion protection for the database. | `bool` | n/a | yes |
+| <a name="input_max_connections"></a> [max\_connections](#input\_max\_connections) | The maximum number of connections to the database. | `string` | `"2000"` | no |
 | <a name="input_network_name"></a> [network\_name](#input\_network\_name) | The name of the network to use for the database | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The project ID to host the db in | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The region to host the db in | `string` | n/a | yes |

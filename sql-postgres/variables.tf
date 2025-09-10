@@ -41,6 +41,11 @@ variable "tier" {
   type        = string
   default     = "db-f1-micro"
 }
+variable "max_connections" {
+  description = "The maximum number of connections to the database."
+  type        = string
+  default     = "2000"
+}
 locals {
   zones   = data.google_compute_zones.available.names
   db_zone = var.db_zone_selector == "*" ? null : local.zones[tonumber(var.db_zone_selector)]
