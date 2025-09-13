@@ -14,9 +14,10 @@ resource "random_password" "admin_user_password" {
 }
 
 resource "google_sql_user" "admin_user" {
-  name        = "${var.database_name}-admin-user"
-  instance    = var.cloud_sql_instance_name
-  password_wo = random_password.admin_user_password.result
+  name                = "${var.database_name}-admin-user"
+  instance            = var.cloud_sql_instance_name
+  password_wo         = random_password.admin_user_password.result
+  password_wo_version = 1
 }
 
 resource "google_sql_database" "main_database" {
