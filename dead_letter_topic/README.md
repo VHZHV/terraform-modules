@@ -16,7 +16,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_dead_letter_topic_pubsub"></a> [dead\_letter\_topic\_pubsub](#module\_dead\_letter\_topic\_pubsub) | terraform-google-modules/pubsub/google | 8.3.0 |
+| <a name="module_dead_letter_topic_pubsub"></a> [dead\_letter\_topic\_pubsub](#module\_dead\_letter\_topic\_pubsub) | terraform-google-modules/pubsub/google | 8.3.1 |
 
 ## Resources
 
