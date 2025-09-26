@@ -4,7 +4,7 @@ locals {
 
 module "ip_addresses" {
   source  = "terraform-google-modules/address/google"
-  version = "4.1.0"
+  version = "4.2.0"
 
   names = [
     for dns_name in local.dns_names : "${var.name_prefix}-${replace(dns_name, ".", "-")}-ip-${var.name_suffix}"
