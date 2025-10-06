@@ -8,6 +8,8 @@ module "dead_letter_topic_pubsub" {
   source  = "terraform-google-modules/pubsub/google"
   version = "8.3.2"
 
+  grant_token_creator = false
+
   topic                            = local.topic_name
   project_id                       = var.project_id
   topic_message_retention_duration = var.message_retention_duration
