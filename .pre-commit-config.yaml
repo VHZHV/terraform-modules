@@ -19,3 +19,4 @@ repos:
         args:
           - --hook-config=--add-to-existing-file=true
           - --args=--lockfile=false
+          - --args=--ignorefile='./.trivyignore.yaml'
