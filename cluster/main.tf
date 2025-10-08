@@ -3,6 +3,7 @@
 # trivy:ignore:avd-gcp-0059 - We want this cluster to have services that can be accessed from the internet
 # trivy:ignore:avd-gcp-0061 - We want this in case someone on support needs to access the cluster
 # trivy:ignore:avd-gcp-0050 - False positive, as we do generate a minimal service account for the nodes
+# trivy:ignore:avd-azu-0012 - Completely wrong, not even using Azure
 module "gke" {
   source  = "terraform-google-modules/kubernetes-engine/google"
   version = "40.0.0"
