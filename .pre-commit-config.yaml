@@ -1,7 +1,7 @@
 # docker run --pull=always -e "USERID=$(id -u):$(id -g)" -v $(pwd):/lint -w /lint ghcr.io/antonbabenko/pre-commit-terraform:latest run --all-files
 repos:
   - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: "v1.99.4"
+    rev: "v1.101.0"
     hooks:
       - id: terraform_validate
         args:
@@ -10,11 +10,14 @@ repos:
         args:
           - --hook-config=--mode=only-check-is-current-lockfile-cross-platform
       - id: terraform_fmt
+        args:
+          - --hook-config=--parallelism-ci-cpu-cores=1
       - id: terraform_tflint
       - id: terraform_trivy
         args:
           - --args=--severity=MEDIUM,HIGH,CRITICAL
           - --args=--skip-dirs="**/.terraform"
+          - --args=--ignorefile='./.trivyignore.yaml'
       - id: terraform_docs
         args:
           - --hook-config=--add-to-existing-file=true
