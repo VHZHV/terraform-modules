@@ -15,6 +15,7 @@ data "google_compute_network" "network" {
 # trivy:ignore:avd-gcp-0020 False positive, this is actually set
 # trivy:ignore:avd-gcp-0022 False positive, this is actually set
 # trivy:ignore:avd-gcp-0025 False positive, this is actually set
+# trivy:ignore:avd-azu-0012 - Completely wrong, not even using Azure
 module "sql-db_postgresql" {
   source  = "terraform-google-modules/sql-db/google//modules/postgresql"
   version = "26.2.0"
