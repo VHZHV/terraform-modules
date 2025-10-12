@@ -17,7 +17,7 @@ data "google_compute_network" "network" {
 # trivy:ignore:avd-gcp-0025 False positive, this is actually set
 module "sql-db_postgresql" {
   source  = "terraform-google-modules/sql-db/google//modules/postgresql"
-  version = "26.2.0"
+  version = "26.2.2"
 
   project_id        = var.project_id
   name              = var.db_name
