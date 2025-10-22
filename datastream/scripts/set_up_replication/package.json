@@ -2,12 +2,12 @@
   "name": "set_up_replication",
   "version": "1.0.0",
   "description": "",
+  "author": "",
   "main": "index.js",
   "scripts": {
-    "exec": "node create.mjs",
-    "check": "node check.mjs"
+    "check": "node check.mjs",
+    "exec": "node create.mjs"
   },
-  "author": "",
   "dependencies": {
     "@google-cloud/cloud-sql-connector": "^1",
     "pg": "^8"

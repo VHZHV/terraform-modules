@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 terraform -chdir=.. state pull > /tmp/terraform.tfstate.json
 

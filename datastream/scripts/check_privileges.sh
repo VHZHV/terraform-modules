@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "🔧 Setting up environment from Terraform state..."
 source <(./extract_env_from_state.sh)
