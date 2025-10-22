@@ -26,3 +26,8 @@ variable "environment_name" {
   type        = string
   description = "Environment name."
 }
+
+variable "roles" {
+  type        = list(string)
+  description = "Extra roles"
+}

@@ -7,11 +7,9 @@ module "workload_identity" {
   project_id = var.project_id
   namespace  = var.k8s_namespace
 
-  roles = [
+  roles = concat([
     "roles/logging.logWriter",
     "roles/cloudtrace.agent",
     "roles/monitoring.metricWriter",
-    "roles/cloudsql.client",
-    "roles/cloudsql.instanceUser",
-  ]
+  ], var.roles)
 }
