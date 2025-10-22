@@ -30,9 +30,9 @@ variable "tables" {
 variable "db" {
   type = object({
     connection_name   = string
-    database_name     = string
     name              = string
     public_ip_address = string
+    database_name     = string
     user_name         = string
     user_password     = string
   })

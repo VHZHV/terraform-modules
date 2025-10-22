@@ -38,7 +38,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_bigquery_region"></a> [bigquery\_region](#input\_bigquery\_region) | The BigQuery region. | `string` | n/a | yes |
-| <a name="input_db"></a> [db](#input\_db) | n/a | <pre>object({<br/>    connection_name   = string<br/>    database_name     = string<br/>    name              = string<br/>    public_ip_address = string<br/>    user_name         = string<br/>    user_password     = string<br/>  })</pre> | n/a | yes |
+| <a name="input_db"></a> [db](#input\_db) | n/a | <pre>object({<br/>    connection_name   = string<br/>    name              = string<br/>    public_ip_address = string<br/>    database_name     = string<br/>    user_name         = string<br/>    user_password     = string<br/>  })</pre> | n/a | yes |
 | <a name="input_environment_name"></a> [environment\_name](#input\_environment\_name) | Environment name. | `string` | n/a | yes |
 | <a name="input_group"></a> [group](#input\_group) | Something like console, account, enforcement | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The project ID to host the cluster in | `string` | n/a | yes |
