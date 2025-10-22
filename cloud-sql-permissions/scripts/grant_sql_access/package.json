@@ -2,12 +2,12 @@
   "name": "grant_sql_access",
   "version": "1.0.0",
   "description": "",
+  "license": "ISC",
+  "author": "",
   "main": "index.js",
   "scripts": {
     "exec": "node index.mjs"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@google-cloud/cloud-sql-connector": "^1",
     "pg": "^8"
