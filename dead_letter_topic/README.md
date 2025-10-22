@@ -1,4 +1,4 @@
-# dead_letter_topic
+# Dead letter topic
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
