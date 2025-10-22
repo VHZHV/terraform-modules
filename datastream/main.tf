@@ -131,4 +131,3 @@ resource "google_datastream_stream" "stream" {
   backfill_all {
   }
 }
-

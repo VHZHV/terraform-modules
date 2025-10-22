@@ -37,4 +37,3 @@ variable "db" {
     user_password     = string
   })
 }
-
