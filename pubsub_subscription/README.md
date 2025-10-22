@@ -1,4 +1,4 @@
-# Pubsub subscrption
+# Pubsub subscription
 
 Creates a pull subscription to a pubsub topic, creates a deadletter topic for this subscripton, and allows a service
 account to access it.

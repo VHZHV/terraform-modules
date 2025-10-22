@@ -18,10 +18,14 @@ updates:
       - /cloud-sql-permissions
       - /cluster
       - /custom_metrics_stackdriver_adapter
+      - /datastream
+      - /datastream/access
       - /db
       - /dead_letter_topic
       - /helm-provider
       - /helm_release
+      - /identity-platform/email_customisations
+      - /identity-platform/email_template_inheritance
       - /ip_addresses
       - /opentelemetry-operator
       - /otel-collector-sidecar
@@ -30,7 +34,11 @@ updates:
       - /pubsub_subscription
       - /pubsub_subscription/examples/simple_example
       - /region
+      - /sendgrid/design_library_api_key
+      - /sendgrid/send_api_key
+      - /sendgrid/validate_api_key
       - /sql-postgres
+      - /workload_identity
       - /workload_identity_service_account
       - /workload_identity_service_account/examples/simple_example
     schedule:
@@ -45,6 +53,7 @@ updates:
   - package-ecosystem: npm
     directories:
       - /cloud-sql-permissions/scripts/grant_sql_access
+      - /datastream/scripts/set_up_replication
     schedule:
       interval: weekly
       time: "05:00"
