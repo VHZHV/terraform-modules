@@ -1,12 +1,12 @@
 {
-  "name": "grant_sql_access",
+  "name": "set_up_replication",
   "version": "1.0.0",
   "description": "",
-  "license": "ISC",
   "author": "",
   "main": "index.js",
   "scripts": {
-    "exec": "node index.mjs"
+    "check": "node check.mjs",
+    "exec": "node create.mjs"
   },
   "dependencies": {
     "@google-cloud/cloud-sql-connector": "^1",
