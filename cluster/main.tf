@@ -41,6 +41,7 @@ module "gke" {
 
   enable_vertical_pod_autoscaling = true
   horizontal_pod_autoscaling      = true
+  gateway_api_channel             = "CHANNEL_STANDARD"
   cluster_autoscaling = {
     enabled             = var.cluster_autoscaling_enabled
     autoscaling_profile = var.cluster_autoscaling_profile

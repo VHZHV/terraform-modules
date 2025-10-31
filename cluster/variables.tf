@@ -34,6 +34,11 @@ variable "cluster_autoscaling_enabled" {
   default     = true
 }
 
+variable "deletion_protection" {
+  type        = bool
+  description = "Whether to enable deletion protection for the database."
+}
+
 variable "cluster_name" {
   description = "The name of the cluster to create"
   type        = string
