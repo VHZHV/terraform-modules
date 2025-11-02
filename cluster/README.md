@@ -33,6 +33,7 @@ No resources.
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | The name of the cluster to create | `string` | n/a | yes |
 | <a name="input_cluster_regional"></a> [cluster\_regional](#input\_cluster\_regional) | Whether is a regional cluster (zonal cluster if set to false). | `bool` | n/a | yes |
 | <a name="input_cluster_zones"></a> [cluster\_zones](#input\_cluster\_zones) | The zones to create the cluster in, if regional is false | `list(string)` | n/a | yes |
+| <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | Whether to enable deletion protection for the database. | `bool` | n/a | yes |
 | <a name="input_ip_range_pods_name"></a> [ip\_range\_pods\_name](#input\_ip\_range\_pods\_name) | The name of the IP range for pods in the cluster | `string` | n/a | yes |
 | <a name="input_ip_range_services_name"></a> [ip\_range\_services\_name](#input\_ip\_range\_services\_name) | The name of the IP range for services in the cluster | `string` | n/a | yes |
 | <a name="input_label"></a> [label](#input\_label) | The label to use for the cluster | `string` | n/a | yes |
