@@ -20,7 +20,7 @@ module "gke" {
   ip_range_services = var.ip_range_services_name
 
   enable_cost_allocation   = true
-  deletion_protection      = false
+  deletion_protection      = var.deletion_protection
   remove_default_node_pool = true
 
   grant_registry_access = true
