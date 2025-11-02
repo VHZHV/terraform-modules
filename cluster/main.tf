@@ -20,7 +20,7 @@ module "gke" {
   ip_range_services = var.ip_range_services_name
 
   enable_cost_allocation   = true
-  deletion_protection      = false
+  deletion_protection      = var.deletion_protection
   remove_default_node_pool = true
 
   grant_registry_access = true
@@ -41,6 +41,7 @@ module "gke" {
 
   enable_vertical_pod_autoscaling = true
   horizontal_pod_autoscaling      = true
+  gateway_api_channel             = "CHANNEL_STANDARD"
   cluster_autoscaling = {
     enabled             = var.cluster_autoscaling_enabled
     autoscaling_profile = var.cluster_autoscaling_profile
