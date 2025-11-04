@@ -22,7 +22,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google_certificate_manager_certificate.service_certs](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/certificate_manager_certificate) | resource |
+| [google_certificate_manager_certificate.certs](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/certificate_manager_certificate) | resource |
 | [google_certificate_manager_certificate_map_entry.service_cert_map_entries](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/certificate_manager_certificate_map_entry) | resource |
 
 ## Inputs

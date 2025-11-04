@@ -24,6 +24,7 @@ module "gke" {
   remove_default_node_pool = true
 
   grant_registry_access = true
+  release_channel       = "RAPID"
   registry_project_ids  = ["hozah-artifacts"]
 
   node_pools = [
