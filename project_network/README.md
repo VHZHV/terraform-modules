@@ -20,7 +20,7 @@
 |------|--------|---------|
 | <a name="module_dns_zone"></a> [dns\_zone](#module\_dns\_zone) | terraform-google-modules/cloud-dns/google | 6.1.0 |
 | <a name="module_private-service-access"></a> [private-service-access](#module\_private-service-access) | terraform-google-modules/sql-db/google//modules/private_service_access | 26.2.2 |
-| <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-google-modules/network/google | 12.0.0 |
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-google-modules/network/google | 13.0.0 |
 
 ## Resources
 
