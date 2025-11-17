@@ -35,6 +35,7 @@ module "sql-db_postgresql" {
   deletion_protection_enabled              = var.deletion_protection
   read_replica_deletion_protection         = var.deletion_protection
   read_replica_deletion_protection_enabled = var.deletion_protection
+  retain_backups_on_delete                 = var.deletion_protection
 
   password_validation_policy_config = {
     min_length                  = 30
