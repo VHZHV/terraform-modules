@@ -19,11 +19,6 @@ variable "database_name" {
   type        = string
 }
 
-variable "service_account_email" {
-  description = "User name for the application, which permissions will be granted"
-  type        = string
-}
-
 variable "extra_commands" {
   description = "Extra commands to run after the database is created"
   type        = list(string)
