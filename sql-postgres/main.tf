@@ -116,3 +116,9 @@ module "sql-db_postgresql" {
     },
   ]
 }
+
+resource "google_sql_user" "gcp_developers" {
+  name     = "gcp-developers@hozah.com"
+  instance = module.sql-db_postgresql.instance_name
+  type     = "CLOUD_IAM_GROUP"
+}
