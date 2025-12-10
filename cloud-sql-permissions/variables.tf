@@ -3,6 +3,11 @@ variable "instance_connection_name" {
   type        = string
 }
 
+variable "grantee" {
+  description = "The user to grant permissions to"
+  type        = string
+}
+
 variable "user_name" {
   description = "Admin username"
   type        = string
@@ -16,11 +21,6 @@ variable "user_password" {
 
 variable "database_name" {
   description = "Name of the database inside the instance connection"
-  type        = string
-}
-
-variable "service_account_email" {
-  description = "User name for the application, which permissions will be granted"
   type        = string
 }
 
