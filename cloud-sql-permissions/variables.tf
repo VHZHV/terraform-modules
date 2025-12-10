@@ -3,6 +3,11 @@ variable "instance_connection_name" {
   type        = string
 }
 
+variable "grantee" {
+  description = "The user to grant permissions to"
+  type        = string
+}
+
 variable "user_name" {
   description = "Admin username"
   type        = string

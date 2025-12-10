@@ -37,7 +37,7 @@ resource "null_resource" "run_grant_sql_access" {
       USER_NAME                = var.user_name
       USER_PASSWORD            = var.user_password
       DATABASE_NAME            = var.database_name
-      APP_USERNAME             = var.user_name
+      APP_USERNAME             = var.grantee
       EXTRA_COMMANDS           = join("", var.extra_commands)
     }
   }
