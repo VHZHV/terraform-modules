@@ -15,7 +15,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_ip_addresses"></a> [ip\_addresses](#module\_ip\_addresses) | terraform-google-modules/address/google | 4.3.0 |
+| <a name="module_ip_addresses"></a> [ip\_addresses](#module\_ip\_addresses) | terraform-google-modules/address/google | 4.4.0 |
 
 ## Resources
 
