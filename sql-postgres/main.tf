@@ -21,7 +21,7 @@ module "sql-db_postgresql" {
 
   project_id        = var.project_id
   name              = var.db_name
-  database_version  = "POSTGRES_17"
+  database_version  = "POSTGRES_18"
   region            = var.region
   zone              = local.db_zone
   tier              = var.tier

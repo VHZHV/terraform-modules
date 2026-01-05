@@ -4,3 +4,4 @@ name: otel-sidecar-config
 description: A Helm chart for Console's per-environment
 type: application
 version: 0.1.0
+icon: https://pay.hozah.com/static/media/header-logo.46dd4131.png
