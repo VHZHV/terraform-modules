@@ -1,6 +1,6 @@
 module "workload_identity" {
   source  = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
-  version = "42.0.0"
+  version = "43.0.0"
 
   name = "${var.region_short}-${substr(var.service_name, 0, 20)}-${var.environment_name}"
 
