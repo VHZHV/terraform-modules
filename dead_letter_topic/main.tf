@@ -6,7 +6,7 @@ locals {
 # trivy:ignore:avd-gcp-0011 This is part of the module, and only adds it the pubsub project account
 module "dead_letter_topic_pubsub" {
   source  = "terraform-google-modules/pubsub/google"
-  version = "8.5.0"
+  version = "8.6.0"
 
   grant_token_creator = false
 
