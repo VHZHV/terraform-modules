@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+npx -y prettier -h
+
+terraform fmt -recursive . &
+
+git ls-files | grep -e '.yaml$' -e '.yml$'  -e '^README.md$' | xargs -n20 -P8 bash -c 'npx -y prettier --write $*' &
+
+error=0
+for p in $(jobs -p); do wait "$p" || error=1; done
+if [ $error != 0 ]; then exit 1; fi
+
+exec git diff-index --check --cached 'HEAD' --
