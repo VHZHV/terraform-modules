@@ -18,7 +18,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_sql-db_postgresql"></a> [sql-db\_postgresql](#module\_sql-db\_postgresql) | terraform-google-modules/sql-db/google//modules/postgresql | 27.1.0 |
+| <a name="module_sql-db_postgresql"></a> [sql-db\_postgresql](#module\_sql-db\_postgresql) | terraform-google-modules/sql-db/google//modules/postgresql | 27.2.0 |
 
 ## Resources
 
