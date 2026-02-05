@@ -9,7 +9,8 @@ npx -y prettier -h
 
 terraform fmt -recursive . &
 
-git ls-files --cached | grep -e '.yaml$' -e '.yml$'  -e '.md$' | \
+npx -y prettier --write 'README.md' &
+git ls-files --cached | grep -e '.yaml$' -e '.yml$' | \
   xargs -n20 -P8 bash -c 'npx -y prettier --write $*' &
 
 
