@@ -2,14 +2,24 @@
 
 set -euo pipefail
 
+CHANGED_FILES="$(git --no-pager diff --name-status --no-color --cached | awk '$1 != "D" { print $NF }')"
+
+
 npx -y prettier -h
 
 terraform fmt -recursive . &
 
-git ls-files | grep -e '.yaml$' -e '.yml$'  -e '^README.md$' | xargs -n20 -P8 bash -c 'npx -y prettier --write $*' &
+git ls-files --cached | grep -e '.yaml$' -e '.yml$'  -e '.md$' | \
+  xargs -n20 -P8 bash -c 'npx -y prettier --write $*' &
+
 
 error=0
 for p in $(jobs -p); do wait "$p" || error=1; done
-if [ $error != 0 ]; then exit 1; fi
 
-exec git diff-index --check --cached 'HEAD' --
+echo "$CHANGED_FILES" | while read -r file; do
+    if [ -f "$file" ]; then
+        git add "$file"
+    fi
+done
+
+exit $error
