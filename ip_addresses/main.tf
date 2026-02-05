@@ -1,5 +1,5 @@
 locals {
-  any_root = anytrue([for domain in var.domains : (domain == var.dns_domain)])
+  any_root            = anytrue([for domain in var.domains : (domain == var.dns_domain)])
   higher_level_domain = join(".", slice(split(".", var.dns_domain), 1, length(split(".", var.dns_domain))))
 
   used_dns_domain = local.any_root ? local.higher_level_domain : var.dns_domain
