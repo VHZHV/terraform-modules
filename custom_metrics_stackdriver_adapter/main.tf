@@ -1,9 +1,8 @@
 resource "helm_release" "custom_metrics_stackdriver_adapter" {
-  name             = "custom-metrics-stackdriver-adapter"
-  repository       = "oci://europe-docker.pkg.dev"
-  chart            = "hozah-artifacts/docker/hozah/custom-metrics-stackdriver-adapter"
-  version          = "1.14.0"
-  create_namespace = true
+  name       = "custom-metrics-stackdriver-adapter"
+  repository = "oci://europe-docker.pkg.dev"
+  chart      = "hozah-artifacts/docker/hozah/custom-metrics-stackdriver-adapter"
+  version    = "1.15.0"
 }
 
 data "google_project" "project" {
