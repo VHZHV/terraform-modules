@@ -18,17 +18,15 @@
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_custom_metrics_project-iam-bindings"></a> [custom\_metrics\_project-iam-bindings](#module\_custom\_metrics\_project-iam-bindings) | terraform-google-modules/iam/google//modules/projects_iam | 8.2.0 |
-| <a name="module_custom_metrics_service_account-iam-bindings"></a> [custom\_metrics\_service\_account-iam-bindings](#module\_custom\_metrics\_service\_account-iam-bindings) | terraform-google-modules/iam/google//modules/service_accounts_iam | 8.2.0 |
+No modules.
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [google_service_account.custom_metrics](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
+| [google_project_iam_member.stackdriver_monitoring_viewer](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 | [helm_release.custom_metrics_stackdriver_adapter](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) | resource |
+| [google_project.project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
 
 ## Inputs
 
