@@ -5,7 +5,7 @@
 # trivy:ignore:avd-gcp-0050 - False positive, as we do generate a minimal service account for the nodes
 module "gke" {
   source  = "terraform-google-modules/kubernetes-engine/google"
-  version = "43.0.0"
+  version = "44.0.0"
 
   project_id = var.project_id
   name       = var.cluster_name
