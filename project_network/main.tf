@@ -26,7 +26,7 @@ resource "google_dns_record_set" "domain" {
 
 module "vpc" {
   source  = "terraform-google-modules/network/google"
-  version = "16.0.1"
+  version = "16.1.0"
 
   project_id                   = var.project_id
   network_name                 = var.network_name
