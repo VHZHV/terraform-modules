@@ -1,0 +1,15 @@
+---
+version: v1.0
+name: Pipeline
+agent:
+  machine:
+    type: f1-standard-2
+
+blocks:
+  - name: Cache
+    dependencies: []
+    task:
+      jobs:
+        - name: Clear
+          commands:
+            - cache clear
