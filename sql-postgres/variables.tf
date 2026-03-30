@@ -46,6 +46,14 @@ variable "max_connections" {
   type        = string
   default     = "2000"
 }
+variable "additional_database_flags" {
+  description = "Additional database flags to set on the Cloud SQL instance."
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
+}
 locals {
   zones   = data.google_compute_zones.available.names
   db_zone = var.db_zone_selector == "*" ? null : local.zones[tonumber(var.db_zone_selector)]
