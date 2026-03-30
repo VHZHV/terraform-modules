@@ -46,7 +46,54 @@ variable "max_connections" {
   type        = string
   default     = "2000"
 }
+variable "additional_database_flags" {
+  description = "Additional database flags to set on the Cloud SQL instance."
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
+}
 locals {
   zones   = data.google_compute_zones.available.names
   db_zone = var.db_zone_selector == "*" ? null : local.zones[tonumber(var.db_zone_selector)]
+
+  database_flags = concat([
+    {
+      name : "cloudsql.logical_decoding",
+      value : "on"
+    },
+    {
+      name : "cloudsql.iam_authentication",
+      value : "on"
+    },
+    {
+      name : "cloudsql.enable_pgaudit",
+      value : "on"
+    },
+    {
+      name : "log_temp_files",
+      value : "0"
+    },
+    {
+      name : "max_connections",
+      value : var.max_connections
+    },
+    {
+      name : "log_connections",
+      value : "on"
+    },
+    {
+      name : "log_lock_waits",
+      value : "on"
+    },
+    {
+      name : "log_disconnections",
+      value : "on"
+    },
+    {
+      name : "log_checkpoints",
+      value : "on"
+    },
+  ], var.additional_database_flags)
 }
