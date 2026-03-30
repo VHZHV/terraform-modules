@@ -77,7 +77,7 @@ module "sql-db_postgresql" {
     ]
   }
 
-  database_flags = [
+  database_flags = concat([
     {
       name : "cloudsql.logical_decoding",
       value : "on"
@@ -114,7 +114,7 @@ module "sql-db_postgresql" {
       name : "log_checkpoints",
       value : "on"
     },
-  ]
+  ], var.additional_database_flags)
 }
 
 resource "google_sql_user" "gcp_developers" {
