@@ -57,4 +57,43 @@ variable "additional_database_flags" {
 locals {
   zones   = data.google_compute_zones.available.names
   db_zone = var.db_zone_selector == "*" ? null : local.zones[tonumber(var.db_zone_selector)]
+
+  database_flags = concat([
+    {
+      name : "cloudsql.logical_decoding",
+      value : "on"
+    },
+    {
+      name : "cloudsql.iam_authentication",
+      value : "on"
+    },
+    {
+      name : "cloudsql.enable_pgaudit",
+      value : "on"
+    },
+    {
+      name : "log_temp_files",
+      value : "0"
+    },
+    {
+      name : "max_connections",
+      value : var.max_connections
+    },
+    {
+      name : "log_connections",
+      value : "on"
+    },
+    {
+      name : "log_lock_waits",
+      value : "on"
+    },
+    {
+      name : "log_disconnections",
+      value : "on"
+    },
+    {
+      name : "log_checkpoints",
+      value : "on"
+    },
+  ], var.additional_database_flags)
 }

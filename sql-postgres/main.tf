@@ -77,44 +77,7 @@ module "sql-db_postgresql" {
     ]
   }
 
-  database_flags = concat([
-    {
-      name : "cloudsql.logical_decoding",
-      value : "on"
-    },
-    {
-      name : "cloudsql.iam_authentication",
-      value : "on"
-    },
-    {
-      name : "cloudsql.enable_pgaudit",
-      value : "on"
-    },
-    {
-      name : "log_temp_files",
-      value : "0"
-    },
-    {
-      name : "max_connections",
-      value : var.max_connections
-    },
-    {
-      name : "log_connections",
-      value : "on"
-    },
-    {
-      name : "log_lock_waits",
-      value : "on"
-    },
-    {
-      name : "log_disconnections",
-      value : "on"
-    },
-    {
-      name : "log_checkpoints",
-      value : "on"
-    },
-  ], var.additional_database_flags)
+  database_flags = local.database_flags
 }
 
 resource "google_sql_user" "gcp_developers" {
