@@ -32,6 +32,7 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_additional_database_flags"></a> [additional\_database\_flags](#input\_additional\_database\_flags) | Additional database flags to set on the Cloud SQL instance. | <pre>list(object({<br/>    name  = string<br/>    value = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_db_available_type"></a> [db\_available\_type](#input\_db\_available\_type) | Defines possible options for autoscalingProfile field. | `string` | n/a | yes |
 | <a name="input_db_backup"></a> [db\_backup](#input\_db\_backup) | Whether to enable database backup. | `bool` | n/a | yes |
 | <a name="input_db_insights"></a> [db\_insights](#input\_db\_insights) | Whether to enable database insights. | `bool` | n/a | yes |
@@ -46,5 +47,8 @@
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_database_flags"></a> [database\_flags](#output\_database\_flags) | The database flags configured on the Cloud SQL instance. |
+| <a name="output_instance_name"></a> [instance\_name](#output\_instance\_name) | The name of the Cloud SQL instance. |
 <!-- END_TF_DOCS -->
