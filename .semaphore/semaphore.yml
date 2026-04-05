@@ -20,8 +20,6 @@ blocks:
   - name: Test
     dependencies: []
     task:
-      secrets:
-        - name: artifacts
       jobs:
         - name: Terraform
           commands:
