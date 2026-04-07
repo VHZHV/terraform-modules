@@ -28,3 +28,10 @@ blocks:
             - cd "${REPO_NAME}"
 
             - docker run --pull=always -e "USERID=$(id -u):$(id -g)" -v $(pwd):/lint -w /lint ghcr.io/antonbabenko/pre-commit-terraform:latest run --all-files
+
+            # Run terraform test for modules that have .tftest.hcl files
+            - |
+              for dir in $(find . -name "*.tftest.hcl" -exec dirname {} \; | sed 's|/tests$||' | sort -u); do
+                echo "Running terraform test in $dir"
+                docker run --rm --entrypoint "" -e "USERID=$(id -u):$(id -g)" -v $(pwd):/lint -w /lint/$dir hashicorp/terraform:latest sh -c "terraform init -upgrade -backend=false && terraform test"
+              done
