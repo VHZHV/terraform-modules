@@ -1,6 +1,5 @@
 import pg from "pg";
-import {Connector} from "@google-cloud/cloud-sql-connector";
-import {GoogleAuth} from "google-auth-library";
+import {Connector, GoogleAuth} from "@google-cloud/cloud-sql-connector";
 
 const {Pool} = pg;
 
