@@ -15,7 +15,9 @@ updates:
   - package-ecosystem: terraform
     directories:
       - /cert-manager
+      - /certs
       - /cloud-sql-permissions
+      - /cloud-sql-user
       - /cluster
       - /custom_metrics_stackdriver_adapter
       - /datastream
