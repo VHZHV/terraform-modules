@@ -47,5 +47,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_asdasd"></a> [asdasd](#output\_asdasd) | n/a |
 <!-- END_TF_DOCS -->

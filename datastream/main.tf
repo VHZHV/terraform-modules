@@ -1,8 +1,13 @@
+locals {
+  _region_short = join("", [for s in split("-", var.region) : substr(s, 0, 1)])
+  region_short  = "${local._region_short}${substr(var.region, length(var.region) - 1, 1)}"
+}
+
 # Datastream connection profile for Cloud SQL PostgreSQL source
 resource "google_datastream_connection_profile" "postgres_source" {
-  display_name          = "${var.environment_name}-${var.group}-postgres-source"
+  display_name          = "${var.environment_name}-${var.group}-${local.region_short}-postgres-source"
   location              = var.region
-  connection_profile_id = "${var.environment_name}-${var.group}-postgres-source"
+  connection_profile_id = "${var.environment_name}-${var.group}-${local.region_short}-postgres-source"
 
   postgresql_profile {
     hostname = var.db.public_ip_address
@@ -75,11 +80,25 @@ resource "null_resource" "run_datastream_setup" {
   }
 }
 
+output "asdasd" {
+  value = {
+    INSTANCE_CONNECTION_NAME = var.db.connection_name
+    SUPERUSER_NAME           = var.db.user_name
+    SUPERUSER_PASSWORD       = var.db.user_password
+    DATABASE_NAME            = var.db.database_name
+    DATASTREAM_USERNAME      = google_sql_user.datastream_user.name
+    DATASTREAM_PASSWORD      = random_password.datastream_password.result
+    PUBLICATION              = local.datastream_publication
+    SLOT                     = local.datastream_replication_slot
+  }
+
+}
+
 # Connection profile for BigQuery destination
 resource "google_datastream_connection_profile" "bigquery_destination" {
-  display_name          = "${var.environment_name}-${var.group}-bigquery-dest"
+  display_name          = "${var.environment_name}-${var.group}-${local.region_short}-bigquery-dest"
   location              = var.region
-  connection_profile_id = "${var.environment_name}-${var.group}-bigquery-dest"
+  connection_profile_id = "${var.environment_name}-${var.group}-${local.region_short}-bigquery-dest"
 
   bigquery_profile {}
 
@@ -88,10 +107,10 @@ resource "google_datastream_connection_profile" "bigquery_destination" {
 
 
 resource "google_datastream_stream" "stream" {
-  display_name  = "postgres to bigQuery ${var.group} ${var.environment_name}"
+  display_name  = "postgres to bigQuery ${var.group} ${local.region_short} ${var.environment_name}"
   location      = var.region
   project       = var.project_id
-  stream_id     = "postgres-to-bigquery-${var.group}-${var.environment_name}"
+  stream_id     = "postgres-to-bigquery-${var.group}-${local.region_short}-${var.environment_name}"
   desired_state = "RUNNING"
   source_config {
     source_connection_profile = google_datastream_connection_profile.postgres_source.name
