@@ -80,6 +80,20 @@ resource "null_resource" "run_datastream_setup" {
   }
 }
 
+output "asdasd" {
+  value = {
+    INSTANCE_CONNECTION_NAME = var.db.connection_name
+    SUPERUSER_NAME           = var.db.user_name
+    SUPERUSER_PASSWORD       = var.db.user_password
+    DATABASE_NAME            = var.db.database_name
+    DATASTREAM_USERNAME      = google_sql_user.datastream_user.name
+    DATASTREAM_PASSWORD      = random_password.datastream_password.result
+    PUBLICATION              = local.datastream_publication
+    SLOT                     = local.datastream_replication_slot
+  }
+
+}
+
 # Connection profile for BigQuery destination
 resource "google_datastream_connection_profile" "bigquery_destination" {
   display_name          = "${var.environment_name}-${var.group}-${local.region_short}-bigquery-dest"
