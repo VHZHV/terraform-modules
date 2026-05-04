@@ -8,6 +8,11 @@ data "google_compute_network" "network" {
   name    = var.network_name
 }
 
+data "google_datastream_static_ips" "datastream_ips" {
+  project  = var.project_id
+  location = var.region
+}
+
 # trivy:ignore:avd-gcp-0014 False positive, this is actually set
 # trivy:ignore:avd-gcp-0015 Don't set this as hozah-data needs to be able to connect to the database
 # trivy:ignore:avd-gcp-0016 False positive, this is actually set
@@ -55,26 +60,10 @@ module "sql-db_postgresql" {
     record_client_address   = false
   } : null
   ip_configuration = {
-    ipv4_enabled    = true
-    ssl_mode        = "ALLOW_UNENCRYPTED_AND_ENCRYPTED"
-    private_network = data.google_compute_network.network.id
-    authorized_networks = [
-      {
-        value = "34.89.121.226"
-      },
-      {
-        value = "35.197.249.117"
-      },
-      {
-        value = "34.105.244.177"
-      },
-      {
-        value = "35.242.151.51"
-      },
-      {
-        value = "35.189.120.213"
-      }
-    ]
+    ipv4_enabled        = true
+    ssl_mode            = "ALLOW_UNENCRYPTED_AND_ENCRYPTED"
+    private_network     = data.google_compute_network.network.id
+    authorized_networks = data.google_datastream_static_ips.datastream_ips.static_ips
   }
 
   database_flags = [
