@@ -27,6 +27,7 @@
 | [google_sql_user.gcp_developers](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_user) | resource |
 | [google_compute_network.network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_network) | data source |
 | [google_compute_zones.available](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_zones) | data source |
+| [google_datastream_static_ips.datastream_ips](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/datastream_static_ips) | data source |
 
 ## Inputs
 
