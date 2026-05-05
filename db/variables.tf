@@ -13,6 +13,11 @@ variable "database_name" {
   description = "Name of the database to be created in the Cloud SQL instance."
 }
 
+variable "user_name" {
+  type    = string
+  default = ""
+}
+
 variable "deletable" {
   type        = bool
   description = "Flag to indicate if the database can be deleted."

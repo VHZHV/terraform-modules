@@ -37,6 +37,7 @@ No modules.
 | <a name="input_database_name"></a> [database\_name](#input\_database\_name) | Name of the database to be created in the Cloud SQL instance. | `string` | n/a | yes |
 | <a name="input_deletable"></a> [deletable](#input\_deletable) | Flag to indicate if the database can be deleted. | `bool` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | Project id where environment will be deployed. | `string` | n/a | yes |
+| <a name="input_user_name"></a> [user\_name](#input\_user\_name) | n/a | `string` | `""` | no |
 
 ## Outputs
 
