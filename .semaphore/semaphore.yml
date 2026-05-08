@@ -23,8 +23,4 @@ blocks:
       jobs:
         - name: Terraform
           commands:
-            - wait
-
-            - cd "${REPO_NAME}"
-
             - docker run --pull=always -e "USERID=$(id -u):$(id -g)" -v $(pwd):/lint -w /lint ghcr.io/antonbabenko/pre-commit-terraform:latest run --all-files
