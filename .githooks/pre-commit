@@ -10,7 +10,7 @@ npx -y prettier -h > /dev/null
 terraform fmt -recursive . &
 
 npx -y prettier --log-level=silent --write 'README.md' &
-git ls-files --cached | grep -e '.yaml$' -e '.yml$' -e '.json$' | \
+git ls-files --cached | grep -e '\.yaml$' -e '\.yml$' -e '\.json$' | \
   xargs --max-args=20 --max-procs=8 bash -c 'npx -y prettier --log-level=silent --write $0 $*' &
 
 
