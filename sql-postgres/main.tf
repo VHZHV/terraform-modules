@@ -22,7 +22,7 @@ data "google_datastream_static_ips" "datastream_ips" {
 # trivy:ignore:avd-gcp-0025 False positive, this is actually set
 module "sql-db_postgresql" {
   source  = "terraform-google-modules/sql-db/google//modules/postgresql"
-  version = "28.0.1"
+  version = "28.1.0"
 
   project_id        = var.project_id
   name              = var.db_name
