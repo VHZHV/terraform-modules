@@ -30,6 +30,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_k8s_namespace"></a> [k8s\_namespace](#input\_k8s\_namespace) | Kubernetes namespace. | `string` | n/a | yes |
 | <a name="input_telemetry_enabled"></a> [telemetry\_enabled](#input\_telemetry\_enabled) | Enable telemetry | `bool` | n/a | yes |
+| <a name="input_trace_sampling_ratio"></a> [trace\_sampling\_ratio](#input\_trace\_sampling\_ratio) | parentbased\_traceidratio sampler arg for OTEL\_TRACES\_SAMPLER\_ARG. Suggested: 0.05 staging, 0.01 production. | `number` | `0.01` | no |
 
 ## Outputs
 
