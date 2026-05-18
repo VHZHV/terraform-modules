@@ -6,9 +6,33 @@ metadata:
 data:
   OTEL_RESOURCE_PROVIDERS_GCP_ENABLED: "true"
   OTEL_JAVAAGENT_ENABLED: "{{ .Values.telemetry.enabled }}"
+  # Default-off + explicit allow-list cuts agent startup cost (~75s of ByteBuddy
+  # type matching across ~150 modules on a 37k-class app). Re-enable only what
+  # we actually use; if something on this list is unused, drop it.
+  OTEL_INSTRUMENTATION_COMMON_DEFAULT_ENABLED: "false"
   OTEL_INSTRUMENTATION_MICROMETER_ENABLED: "true"
+  OTEL_INSTRUMENTATION_EXECUTORS_ENABLED: "true"
+  OTEL_INSTRUMENTATION_METHODS_ENABLED: "true"
+  OTEL_INSTRUMENTATION_TOMCAT_ENABLED: "true"
+  OTEL_INSTRUMENTATION_SPRING_WEBMVC_ENABLED: "true"
+  OTEL_INSTRUMENTATION_SPRING_WEB_ENABLED: "true"
+  OTEL_INSTRUMENTATION_SPRING_BOOT_AUTOCONFIGURE_ENABLED: "true"
+  OTEL_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED: "true"
+  OTEL_INSTRUMENTATION_JDBC_ENABLED: "true"
+  OTEL_INSTRUMENTATION_HIKARICP_ENABLED: "true"
+  OTEL_INSTRUMENTATION_GRPC_ENABLED: "true"
+  OTEL_INSTRUMENTATION_GOOGLE_HTTP_CLIENT_ENABLED: "true"
+  OTEL_INSTRUMENTATION_LOGBACK_APPENDER_ENABLED: "true"
+  OTEL_INSTRUMENTATION_LOGBACK_MDC_ENABLED: "true"
   # For some reason these are needed to be set, the defaults don't seem to be defaults, I am guessing because of the buildpack
   # https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#exporter-selection
   OTEL_TRACES_EXPORTER: "otlp"
   OTEL_METRICS_EXPORTER: "otlp"
   OTEL_LOGS_EXPORTER: "otlp"
+  OTEL_TRACES_SAMPLER: "parentbased_traceidratio"
+  OTEL_TRACES_SAMPLER_ARG: "{{ .Values.telemetry.traceSamplingRatio }}"
+  # Micrometer Timers bridge to OTel as histograms with no explicit bucket bounds,
+  # which GMP rejects with InvalidArgument. The whole batch then drops, taking
+  # sibling counters with it. Switching the default aggregation to exponential
+  # buckets sidesteps the bounds requirement; GMP supports exponential histograms.
+  OTEL_EXPORTER_OTLP_METRICS_DEFAULT_HISTOGRAM_AGGREGATION: "BASE2_EXPONENTIAL_BUCKET_HISTOGRAM"
