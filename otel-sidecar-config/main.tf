@@ -13,7 +13,8 @@ resource "helm_release" "otel_sidecar_config" {
     yamlencode(merge(
       {
         telemetry = {
-          enabled = var.telemetry_enabled
+          enabled            = var.telemetry_enabled
+          traceSamplingRatio = var.trace_sampling_ratio
         },
         otel_sidecar_config = {
           name = local.otel_sidecar_config_name
