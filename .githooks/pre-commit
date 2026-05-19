@@ -9,6 +9,8 @@ CHANGED_FILES="$(git --no-pager diff --name-status --no-color --cached | awk '$1
 
 npx -y prettier -h > /dev/null
 
+docker run --pull=always -e "USERID=$(id -u):$(id -g)" -v $(pwd):/lint -w /lint ghcr.io/antonbabenko/pre-commit-terraform:latest run --all-files &
+
 terraform fmt -recursive . &
 
 npx -y prettier --log-level=silent --write 'README.md' &
