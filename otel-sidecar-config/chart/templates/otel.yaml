@@ -10,6 +10,16 @@ data:
   # type matching across ~150 modules on a 37k-class app). Re-enable only what
   # we actually use; if something on this list is unused, drop it.
   OTEL_INSTRUMENTATION_COMMON_DEFAULT_ENABLED: "false"
+  # Bridges user-code `GlobalOpenTelemetry.get()` calls (manual API
+  # instrumentation — counters, histograms, spans) to the agent's SDK.
+  # Without it, every `meterBuilder(...).counterBuilder(...).build().add(...)`
+  # silently resolves to the no-op SDK; Micrometer-bridged metrics keep
+  # flowing but anything written against the OTel API directly is dropped.
+  OTEL_INSTRUMENTATION_OPENTELEMETRY_API_ENABLED: "true"
+  # JVM runtime metrics (heap, GC, threads, CPU, classes). JMX on Java 8+;
+  # JFR-derived metrics added automatically on Java 17+. Without it the
+  # `jvm.*` series under prometheus.googleapis.com stop emitting.
+  OTEL_INSTRUMENTATION_RUNTIME_TELEMETRY_ENABLED: "true"
   OTEL_INSTRUMENTATION_MICROMETER_ENABLED: "true"
   OTEL_INSTRUMENTATION_EXECUTORS_ENABLED: "true"
   OTEL_INSTRUMENTATION_METHODS_ENABLED: "true"
