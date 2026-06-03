@@ -67,8 +67,7 @@ updates:
         patterns:
           - "*"
   - package-ecosystem: docker
-    directories:
-      - /custom_metrics_stackdriver_adapter
+    directory: "/"
     schedule:
       interval: weekly
       time: "05:00"
