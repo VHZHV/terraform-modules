@@ -28,6 +28,7 @@ updates:
       - /helm_release
       - /identity-platform/email_customisations
       - /identity-platform/email_template_inheritance
+      - /image_lookup
       - /ip_addresses
       - /opentelemetry-operator
       - /otel-collector-sidecar
