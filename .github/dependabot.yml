@@ -26,8 +26,10 @@ updates:
       - /dead_letter_topic
       - /helm-provider
       - /helm_release
+      - /hozah_helm
       - /identity-platform/email_customisations
       - /identity-platform/email_template_inheritance
+      - /image_lookup
       - /ip_addresses
       - /opentelemetry-operator
       - /otel-collector-sidecar

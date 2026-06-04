@@ -18,7 +18,9 @@
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_hozah_helm"></a> [hozah\_helm](#module\_hozah\_helm) | ../hozah_helm | n/a |
 
 ## Resources
 
