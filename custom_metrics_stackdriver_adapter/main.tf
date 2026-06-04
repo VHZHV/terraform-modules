@@ -1,8 +1,12 @@
+module "hozah_helm" {
+  source = "../hozah_helm"
+}
+
 resource "helm_release" "custom_metrics_stackdriver_adapter" {
   name       = "custom-metrics-stackdriver-adapter"
-  repository = "oci://europe-docker.pkg.dev"
-  chart      = "hozah-artifacts/docker/hozah/custom-metrics-stackdriver-adapter"
-  version    = "1.35.0"
+  repository = module.hozah_helm.repository
+  chart      = "${module.hozah_helm.chart_root}/custom-metrics-stackdriver-adapter"
+  version    = module.hozah_helm.version
 }
 
 data "google_project" "project" {
