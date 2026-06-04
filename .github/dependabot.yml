@@ -1,11 +1,5 @@
 ---
 version: 2
-registries:
-  hozah-artifacts-docker:
-    type: maven-repository
-    url: https://europe-maven.pkg.dev/hozah-artifacts/docker
-    username: _json_key
-    password: ${{ secrets.HOZAH_ARTIFACTS_DEPENDABOT_KEY }}
 updates:
   - package-ecosystem: github-actions
     directory: /
@@ -63,19 +57,6 @@ updates:
     directories:
       - /cloud-sql-permissions/scripts/grant_sql_access
       - /datastream/scripts/set_up_replication
-    schedule:
-      interval: weekly
-      time: "05:00"
-      timezone: Europe/London
-      day: monday
-    groups:
-      all:
-        patterns:
-          - "*"
-  - package-ecosystem: docker
-    directory: custom_metrics_stackdriver_adapter
-    registries:
-      - hozah-artifacts-docker
     schedule:
       interval: weekly
       time: "05:00"

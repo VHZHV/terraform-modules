@@ -1,1 +1,0 @@
-FROM europe-docker.pkg.dev/stackdriver-adapter/stackdriver-adapter:1.35.0
