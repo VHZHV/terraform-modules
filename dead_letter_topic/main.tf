@@ -16,16 +16,10 @@ module "dead_letter_topic_pubsub" {
 
   pull_subscriptions = [
     {
-      name                         = "${var.root_topic_name}-dead-subscription"
-      ack_deadline_seconds         = 10
-      expiration_policy            = var.subscription_expiration_policy
-      max_delivery_attempts        = 5
-      retain_acked_messages        = false
-      message_retention_duration   = var.subscription_message_retention_duration
-      maximum_backoff              = "600s"
-      minimum_backoff              = "30s"
-      enable_message_ordering      = false
-      enable_exactly_once_delivery = true
+      name                       = "${var.root_topic_name}-dead-subscription"
+      ack_deadline_seconds       = 600
+      expiration_policy          = var.subscription_expiration_policy
+      message_retention_duration = var.subscription_message_retention_duration
     },
   ]
 }
