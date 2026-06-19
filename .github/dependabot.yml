@@ -16,6 +16,7 @@ updates:
     directories:
       - /cert-manager
       - /certs
+      - /cloud-armor
       - /cloud-sql-permissions
       - /cloud-sql-user
       - /cluster
