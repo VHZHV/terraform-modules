@@ -1,12 +1,3 @@
-terraform {
-  required_version = ">=1.7.2"
-  required_providers {
-    null = {
-      source  = "hashicorp/null"
-      version = "~> 3.0"
-    }
-  }
-}
 
 locals {
   script_path = "${path.module}/scripts/grant_sql_access"
