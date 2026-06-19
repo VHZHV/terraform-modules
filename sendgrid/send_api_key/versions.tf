@@ -1,6 +1,5 @@
 terraform {
-  required_version = ">= 0.13"
-
+  required_version = ">= 1"
   required_providers {
     sendgrid = {
       source  = "anna-money/sendgrid"
