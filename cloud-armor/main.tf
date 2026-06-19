@@ -10,6 +10,7 @@ module "security_policy" {
   type                                 = "CLOUD_ARMOR"
   layer_7_ddos_defense_enable          = true
   layer_7_ddos_defense_rule_visibility = "STANDARD"
+  json_parsing                         = "STANDARD"
 
   pre_configured_rules = {
     "sqli" = {
