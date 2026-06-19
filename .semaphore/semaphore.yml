@@ -3,7 +3,7 @@ version: v1.0
 name: Pipeline
 agent:
   machine:
-    type: f1-standard-2
+    type: r1-standard-2
 
 auto_cancel:
   queued:
@@ -17,9 +17,12 @@ global_job_config:
     commands_file: commands/set_vars_and_checkout.sh
 
 blocks:
-  - name: Test
+  - name: Verify
     dependencies: []
     task:
+      agent:
+        machine:
+          type: f1-standard-2
       jobs:
         - name: Terraform
           commands:
