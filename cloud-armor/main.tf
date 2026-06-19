@@ -60,6 +60,7 @@ module "security_policy" {
       action            = "deny(502)"
       target_rule_set   = "scannerdetection-v422-stable"
       sensitivity_level = 4
+      preview           = true
     }
     "protocolattack" = {
       priority          = 8
