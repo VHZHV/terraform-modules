@@ -23,42 +23,42 @@ module "security_policy" {
       priority          = 2
       action            = "deny(502)"
       target_rule_set   = "xss-v422-stable"
-      sensitivity_level = 2
+      sensitivity_level = 4
       preview           = true
     }
     "lfi" = {
       priority          = 3
       action            = "deny(502)"
       target_rule_set   = "lfi-v422-stable"
-      sensitivity_level = 2
+      sensitivity_level = 4
       preview           = true
     }
     "rfi" = {
       priority          = 4
       action            = "deny(502)"
       target_rule_set   = "rfi-v422-stable"
-      sensitivity_level = 2
+      sensitivity_level = 4
       preview           = true
     }
     "rce" = {
       priority          = 5
       action            = "deny(502)"
       target_rule_set   = "rce-v422-stable"
-      sensitivity_level = 3
+      sensitivity_level = 4
       preview           = true
     }
     "methodenforcement" = {
       priority          = 6
       action            = "deny(502)"
       target_rule_set   = "methodenforcement-v422-stable"
-      sensitivity_level = 1
+      sensitivity_level = 4
       preview           = true
     }
     "scannerdetection" = {
       priority          = 7
       action            = "deny(502)"
       target_rule_set   = "scannerdetection-v422-stable"
-      sensitivity_level = 2
+      sensitivity_level = 4
     }
     "protocolattack" = {
       priority          = 8
@@ -71,7 +71,7 @@ module "security_policy" {
       action            = "deny(502)"
       priority          = 9
       target_rule_set   = "sessionfixation-v422-stable"
-      sensitivity_level = 1
+      sensitivity_level = 4
       preview           = true
     }
     "java" = {
@@ -85,7 +85,7 @@ module "security_policy" {
       action            = "deny(502)"
       priority          = 11
       target_rule_set   = "generic-v422-stable"
-      sensitivity_level = 2
+      sensitivity_level = 4
       preview           = true
     }
   }
