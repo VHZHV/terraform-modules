@@ -4,7 +4,7 @@
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
 
 ## Providers
@@ -14,7 +14,7 @@ No providers.
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_gke"></a> [gke](#module\_gke) | terraform-google-modules/kubernetes-engine/google | 44.2.0 |
 
 ## Resources
@@ -24,7 +24,7 @@ No resources.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_cluster_autoscaling_enabled"></a> [cluster\_autoscaling\_enabled](#input\_cluster\_autoscaling\_enabled) | Whether cluster autoscaling is enabled. | `bool` | `true` | no |
 | <a name="input_cluster_autoscaling_profile"></a> [cluster\_autoscaling\_profile](#input\_cluster\_autoscaling\_profile) | Defines possible options for autoscalingProfile field. | `string` | n/a | yes |
 | <a name="input_cluster_max_cpu_cores"></a> [cluster\_max\_cpu\_cores](#input\_cluster\_max\_cpu\_cores) | Number of CPU cores to use for the cluster autoscaling. | `number` | n/a | yes |

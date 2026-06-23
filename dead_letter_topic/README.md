@@ -4,7 +4,7 @@
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
 
 ## Providers
@@ -14,7 +14,7 @@ No providers.
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_dead_letter_topic_pubsub"></a> [dead\_letter\_topic\_pubsub](#module\_dead\_letter\_topic\_pubsub) | terraform-google-modules/pubsub/google | 8.7.0 |
 
 ## Resources
@@ -24,7 +24,7 @@ No resources.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_message_retention_duration"></a> [message\_retention\_duration](#input\_message\_retention\_duration) | Message retention duration for the subscription. | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | Project id where environment will be deployed. | `string` | n/a | yes |
 | <a name="input_root_topic_name"></a> [root\_topic\_name](#input\_root\_topic\_name) | The Pub/Sub topic name. | `string` | n/a | yes |
@@ -34,6 +34,6 @@ No resources.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_id"></a> [id](#output\_id) | n/a |
 <!-- END_TF_DOCS -->

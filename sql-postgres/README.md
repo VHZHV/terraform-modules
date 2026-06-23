@@ -4,26 +4,26 @@
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | ~> 7.0 |
 
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_google"></a> [google](#provider\_google) | ~> 7.0 |
 
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_sql-db_postgresql"></a> [sql-db\_postgresql](#module\_sql-db\_postgresql) | terraform-google-modules/sql-db/google//modules/postgresql | 28.1.0 |
 
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [google_sql_user.gcp_developers](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_user) | resource |
 | [google_compute_network.network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_network) | data source |
 | [google_compute_zones.available](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_zones) | data source |
@@ -32,7 +32,7 @@
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_db_available_type"></a> [db\_available\_type](#input\_db\_available\_type) | Defines possible options for autoscalingProfile field. | `string` | n/a | yes |
 | <a name="input_db_backup"></a> [db\_backup](#input\_db\_backup) | Whether to enable database backup. | `bool` | n/a | yes |
 | <a name="input_db_insights"></a> [db\_insights](#input\_db\_insights) | Whether to enable database insights. | `bool` | n/a | yes |

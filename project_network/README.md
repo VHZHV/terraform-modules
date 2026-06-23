@@ -4,20 +4,20 @@
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | ~> 7.0 |
 
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_google"></a> [google](#provider\_google) | ~> 7.0 |
 
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_dns_zone"></a> [dns\_zone](#module\_dns\_zone) | terraform-google-modules/cloud-dns/google | 7.1.0 |
 | <a name="module_private-service-access"></a> [private-service-access](#module\_private-service-access) | terraform-google-modules/sql-db/google//modules/private_service_access | 28.1.0 |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-google-modules/network/google | 18.1.2 |
@@ -25,13 +25,13 @@
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [google_dns_record_set.domain](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/dns_record_set) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_dns_record_managed_zone"></a> [dns\_record\_managed\_zone](#input\_dns\_record\_managed\_zone) | Managed zone where the DNS record will be created. Typically 'hozahproduction'. | `string` | n/a | yes |
 | <a name="input_dns_record_project"></a> [dns\_record\_project](#input\_dns\_record\_project) | Project where the DNS record will be created. Typically parking. | `string` | n/a | yes |
 | <a name="input_dns_zone_name"></a> [dns\_zone\_name](#input\_dns\_zone\_name) | Name of the DNS zone to be created. | `string` | n/a | yes |

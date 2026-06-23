@@ -4,14 +4,14 @@
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | ~> 7.0 |
 
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_google"></a> [google](#provider\_google) | ~> 7.0 |
 
 ## Modules
@@ -21,13 +21,13 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [google_compute_zones.available](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_zones) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_cluster_regional"></a> [cluster\_regional](#input\_cluster\_regional) | Whether is a regional cluster (zonal cluster if set false. | `bool` | n/a | yes |
 | <a name="input_cluster_zone_selector"></a> [cluster\_zone\_selector](#input\_cluster\_zone\_selector) | Selector for the cluster zone, either a number or '*' for all zones in the region. | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | The name of the cluster, will be used to generate the cluster name and database name. | `string` | n/a | yes |
@@ -38,7 +38,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_cluster_location"></a> [cluster\_location](#output\_cluster\_location) | n/a |
 | <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | n/a |
 | <a name="output_cluster_zones"></a> [cluster\_zones](#output\_cluster\_zones) | n/a |

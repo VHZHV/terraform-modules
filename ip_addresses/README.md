@@ -4,7 +4,7 @@
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
 
 ## Providers
@@ -14,7 +14,7 @@ No providers.
 ## Modules
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | <a name="module_ip_addresses"></a> [ip\_addresses](#module\_ip\_addresses) | terraform-google-modules/address/google | 5.0.0 |
 
 ## Resources
@@ -24,7 +24,7 @@ No resources.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_dns_domain"></a> [dns\_domain](#input\_dns\_domain) | n/a | `string` | n/a | yes |
 | <a name="input_dns_managed_zone"></a> [dns\_managed\_zone](#input\_dns\_managed\_zone) | n/a | `string` | n/a | yes |
 | <a name="input_domains"></a> [domains](#input\_domains) | n/a | `list(string)` | n/a | yes |
@@ -36,6 +36,6 @@ No resources.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_ip_names"></a> [ip\_names](#output\_ip\_names) | n/a |
 <!-- END_TF_DOCS -->

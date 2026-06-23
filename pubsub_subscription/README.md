@@ -15,14 +15,14 @@ See simple example
 ## Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | ~> 7.0 |
 
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_google"></a> [google](#provider\_google) | ~> 7.0 |
 
 ## Modules
@@ -32,7 +32,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [google_pubsub_subscription.subscription](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription) | resource |
 | [google_pubsub_subscription_iam_binding.subscription_access](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription_iam_binding) | resource |
 | [google_pubsub_topic.deadletter_topic](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_topic) | resource |
@@ -42,7 +42,7 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_enable_exactly_once_delivery"></a> [enable\_exactly\_once\_delivery](#input\_enable\_exactly\_once\_delivery) | https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription#enable_exactly_once_delivery | `bool` | `false` | no |
 | <a name="input_enable_message_ordering"></a> [enable\_message\_ordering](#input\_enable\_message\_ordering) | https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_subscription#enable_message_ordering | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Name of the environment, will be included in resource names | `string` | n/a | yes |
@@ -54,7 +54,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_deadletter_topic"></a> [deadletter\_topic](#output\_deadletter\_topic) | The deadletter topic created for the subscription |
 | <a name="output_subscription"></a> [subscription](#output\_subscription) | The subscription created for the topic |
 <!-- END_TF_DOCS -->
