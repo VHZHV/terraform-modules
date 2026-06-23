@@ -46,6 +46,11 @@ variable "max_connections" {
   type        = string
   default     = "2000"
 }
+variable "allow_unencrypted_connections" {
+  description = "Whether to enforce SSL encryption requirements for direct connections. Encryption helps to ensure secure data transfer. Really think about setting this to true"
+  type        = bool
+  default     = false
+}
 locals {
   zones   = data.google_compute_zones.available.names
   db_zone = var.db_zone_selector == "*" ? null : local.zones[tonumber(var.db_zone_selector)]

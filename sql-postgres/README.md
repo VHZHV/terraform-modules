@@ -33,6 +33,7 @@
 
 | Name | Description | Type | Default | Required |
 | ---- | ----------- | ---- | ------- | :------: |
+| <a name="input_allow_unencrypted_connections"></a> [allow\_unencrypted\_connections](#input\_allow\_unencrypted\_connections) | Whether to enforce SSL encryption requirements for direct connections. Encryption helps to ensure secure data transfer. Really think about setting this to true | `bool` | `false` | no |
 | <a name="input_db_available_type"></a> [db\_available\_type](#input\_db\_available\_type) | Defines possible options for autoscalingProfile field. | `string` | n/a | yes |
 | <a name="input_db_backup"></a> [db\_backup](#input\_db\_backup) | Whether to enable database backup. | `bool` | n/a | yes |
 | <a name="input_db_insights"></a> [db\_insights](#input\_db\_insights) | Whether to enable database insights. | `bool` | n/a | yes |
