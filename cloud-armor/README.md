@@ -26,6 +26,7 @@ No resources.
 | Name | Description | Type | Default | Required |
 | ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_cloud_armor_id"></a> [cloud\_armor\_id](#input\_cloud\_armor\_id) | n/a | `string` | n/a | yes |
+| <a name="input_ignored_rules"></a> [ignored\_rules](#input\_ignored\_rules) | n/a | `list(string)` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | n/a | `string` | n/a | yes |
 
 ## Outputs
