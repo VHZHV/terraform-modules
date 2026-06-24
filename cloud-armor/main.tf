@@ -1,3 +1,19 @@
+locals {
+  waf_rules = [
+    "sqli-v422-stable",
+    "xss-v422-stable",
+    "lfi-v422-stable",
+    "rfi-v422-stable",
+    "rce-v422-stable",
+    "methodenforcement-v422-stable",
+    "scannerdetection-v422-stable",
+    "protocolattack-v422-stable",
+    "sessionfixation-v422-stable",
+    "java-v422-stable",
+    "generic-v422-stable",
+  ]
+}
+
 module "security_policy" {
   source  = "GoogleCloudPlatform/cloud-armor/google"
   version = "8.1.0"
@@ -13,82 +29,13 @@ module "security_policy" {
   json_parsing                         = "STANDARD"
 
   pre_configured_rules = {
-    "sqli" = {
-      priority          = 1
-      action            = "deny(502)"
-      target_rule_set   = "sqli-v422-stable"
-      sensitivity_level = 4
-      preview           = true
-    }
-    "xss" = {
-      priority          = 2
-      action            = "deny(502)"
-      target_rule_set   = "xss-v422-stable"
-      sensitivity_level = 4
-      preview           = true
-    }
-    "lfi" = {
-      priority          = 3
-      action            = "deny(502)"
-      target_rule_set   = "lfi-v422-stable"
-      sensitivity_level = 4
-      preview           = true
-    }
-    "rfi" = {
-      priority          = 4
-      action            = "deny(502)"
-      target_rule_set   = "rfi-v422-stable"
-      sensitivity_level = 4
-      preview           = true
-    }
-    "rce" = {
-      priority          = 5
-      action            = "deny(502)"
-      target_rule_set   = "rce-v422-stable"
-      sensitivity_level = 4
-      preview           = true
-    }
-    "methodenforcement" = {
-      priority          = 6
-      action            = "deny(502)"
-      target_rule_set   = "methodenforcement-v422-stable"
-      sensitivity_level = 4
-      preview           = true
-    }
-    "scannerdetection" = {
-      priority          = 7
-      action            = "deny(502)"
-      target_rule_set   = "scannerdetection-v422-stable"
-      sensitivity_level = 4
-      preview           = true
-    }
-    "protocolattack" = {
-      priority          = 8
-      action            = "deny(502)"
-      target_rule_set   = "protocolattack-v422-stable"
-      sensitivity_level = 4
-      preview           = true
-    }
-    "sessionfixation" = {
-      action            = "deny(502)"
-      priority          = 9
-      target_rule_set   = "sessionfixation-v422-stable"
-      sensitivity_level = 4
-      preview           = true
-    }
-    "java" = {
-      action            = "deny(502)"
-      priority          = 10
-      target_rule_set   = "java-v422-stable"
-      sensitivity_level = 4
-      preview           = true
-    }
-    "generic" = {
-      action            = "deny(502)"
-      priority          = 11
-      target_rule_set   = "generic-v422-stable"
-      sensitivity_level = 4
-      preview           = true
+    for idx, rule in local.waf_rules : split(",", rule)[0] => {
+      target_rule_set         = rule
+      priority                = idx
+      action                  = "deny(502)"
+      sensitivity_level       = 4
+      preview                 = true
+      exclude_target_rule_ids = compact([for ignored in var.ignored_rules : (endswith(ignored, split(",", rule)[0]) ? ignored : "")])
     }
   }
 }
