@@ -1,11 +1,11 @@
 locals {
   waf_rules = [
-    { target_rule_set = "xss-v422-stable", sensitivity_level = 4 },
+    { target_rule_set = "xss-v422-stable", sensitivity_level = 1 },
     { target_rule_set = "lfi-v422-stable", sensitivity_level = 4 },
     { target_rule_set = "rfi-v422-stable", sensitivity_level = 4 },
     { target_rule_set = "rce-v422-stable", sensitivity_level = 1 },
     { target_rule_set = "scannerdetection-v422-stable", sensitivity_level = 4 },
-    { target_rule_set = "protocolattack-v422-stable", sensitivity_level = 4 },
+    { target_rule_set = "protocolattack-v422-stable", sensitivity_level = 2 },
     { target_rule_set = "sessionfixation-v422-stable", sensitivity_level = 4 },
     { target_rule_set = "java-v422-stable", sensitivity_level = 4 },
     { target_rule_set = "generic-v422-stable", sensitivity_level = 4 },
