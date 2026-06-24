@@ -7,5 +7,6 @@ variable "cloud_armor_id" {
 }
 
 variable "ignored_rules" {
-  type = list(string)
+  type    = list(string)
+  default = []
 }
