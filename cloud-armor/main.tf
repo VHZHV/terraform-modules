@@ -1,14 +1,14 @@
 locals {
   waf_rules = [
-    { target_rule_set = "xss-v422-stable", sensitivity_level = 1 },
-    { target_rule_set = "lfi-v422-stable", sensitivity_level = 4 },
-    { target_rule_set = "rfi-v422-stable", sensitivity_level = 4 },
-    { target_rule_set = "rce-v422-stable", sensitivity_level = 1 },
-    { target_rule_set = "scannerdetection-v422-stable", sensitivity_level = 4 },
-    { target_rule_set = "protocolattack-v422-stable", sensitivity_level = 2 },
-    { target_rule_set = "sessionfixation-v422-stable", sensitivity_level = 4 },
-    { target_rule_set = "java-v422-stable", sensitivity_level = 4 },
-    { target_rule_set = "generic-v422-stable", sensitivity_level = 4 },
+    { target_rule_set = "xss-v422-stable", sensitivity_level = 1, preview = true },
+    { target_rule_set = "lfi-v422-stable", sensitivity_level = 4, preview = true },
+    { target_rule_set = "rfi-v422-stable", sensitivity_level = 4, preview = true },
+    { target_rule_set = "rce-v422-stable", sensitivity_level = 1, preview = true },
+    { target_rule_set = "scannerdetection-v422-stable", sensitivity_level = 4, preview = false },
+    { target_rule_set = "protocolattack-v422-stable", sensitivity_level = 2, preview = true },
+    { target_rule_set = "sessionfixation-v422-stable", sensitivity_level = 4, preview = true },
+    { target_rule_set = "java-v422-stable", sensitivity_level = 4, preview = true },
+    { target_rule_set = "generic-v422-stable", sensitivity_level = 4, preview = true },
   ]
 }
 
@@ -32,7 +32,7 @@ module "security_policy" {
       priority                = idx
       action                  = "deny(502)"
       sensitivity_level       = rule.sensitivity_level
-      preview                 = true
+      preview                 = rule.preview
       exclude_target_rule_ids = compact([for ignored in var.ignored_rules : (endswith(ignored, split(",", rule.target_rule_set)[0]) ? ignored : "")])
     }
   }
