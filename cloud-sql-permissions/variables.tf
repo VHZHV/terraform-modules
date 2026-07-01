@@ -29,3 +29,9 @@ variable "extra_commands" {
   type        = list(string)
   default     = []
 }
+
+variable "grant_write" {
+  description = "Whether to grant write access (pg_write_all_data) to the grantee. Set false for read-only users such as analytics/Metabase (they still get pg_read_all_data)."
+  type        = bool
+  default     = true
+}

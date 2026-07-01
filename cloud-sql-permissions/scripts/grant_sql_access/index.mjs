@@ -31,8 +31,13 @@ process.env.EXTRA_COMMANDS.split(";")
         );
     });
 await pool.query(
-    `GRANT pg_read_all_data, pg_write_all_data TO "${process.env.APP_USERNAME}";`,
+    `GRANT pg_read_all_data TO "${process.env.APP_USERNAME}";`,
 );
+if (process.env.GRANT_WRITE !== "false") {
+    await pool.query(
+        `GRANT pg_write_all_data TO "${process.env.APP_USERNAME}";`,
+    );
+}
 
 await pool.query(
     `GRANT pg_read_all_data, pg_write_all_data TO "${process.env.USER_NAME}";`,

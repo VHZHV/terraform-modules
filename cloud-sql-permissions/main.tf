@@ -9,6 +9,7 @@ locals {
         var.user_name,
         var.user_password,
         var.database_name,
+        tostring(var.grant_write),
       ],
       var.extra_commands,
     )
@@ -30,6 +31,7 @@ resource "null_resource" "run_grant_sql_access" {
       DATABASE_NAME            = var.database_name
       APP_USERNAME             = var.grantee
       EXTRA_COMMANDS           = join("", var.extra_commands)
+      GRANT_WRITE              = tostring(var.grant_write)
     }
   }
 }
