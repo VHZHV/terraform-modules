@@ -68,7 +68,7 @@ module "sql-db_postgresql" {
     }]
   }
 
-  database_flags = [
+  database_flags = concat([
     {
       name : "cloudsql.logical_decoding",
       value : "on"
@@ -105,7 +105,13 @@ module "sql-db_postgresql" {
       name : "log_checkpoints",
       value : "on"
     },
-  ]
+    ],
+    # Optional WAL/checkpoint tuning. Empty (default) => flag not set, so the
+    # Cloud SQL tier default is left untouched for every instance that does not
+    # explicitly opt in.
+    var.wal_compression != "" ? [{ name : "wal_compression", value : var.wal_compression }] : [],
+    var.max_wal_size != "" ? [{ name : "max_wal_size", value : var.max_wal_size }] : [],
+  )
 }
 
 resource "google_sql_user" "gcp_developers" {
