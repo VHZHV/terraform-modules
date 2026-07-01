@@ -51,6 +51,11 @@ variable "allow_unencrypted_connections" {
   type        = bool
   default     = false
 }
+variable "additional_authorized_networks" {
+  description = "Extra external IPv4 addresses/CIDRs allowed to reach the instance's public IP, on top of the Datastream static IPs (e.g. Metabase Cloud egress IPs)."
+  type        = list(string)
+  default     = []
+}
 locals {
   zones   = data.google_compute_zones.available.names
   db_zone = var.db_zone_selector == "*" ? null : local.zones[tonumber(var.db_zone_selector)]
