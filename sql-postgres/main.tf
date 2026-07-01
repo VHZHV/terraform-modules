@@ -63,9 +63,14 @@ module "sql-db_postgresql" {
     ipv4_enabled    = true
     ssl_mode        = var.allow_unencrypted_connections ? "ALLOW_UNENCRYPTED_AND_ENCRYPTED" : "ENCRYPTED_ONLY"
     private_network = data.google_compute_network.network.id
-    authorized_networks = [for ip in data.google_datastream_static_ips.datastream_ips.static_ips : {
-      value = ip
-    }]
+    authorized_networks = concat(
+      [for ip in data.google_datastream_static_ips.datastream_ips.static_ips : {
+        value = ip
+      }],
+      [for ip in var.additional_authorized_networks : {
+        value = ip
+      }],
+    )
   }
 
   database_flags = [
