@@ -46,6 +46,16 @@ variable "max_connections" {
   type        = string
   default     = "2000"
 }
+variable "wal_compression" {
+  description = "WAL compression method (off, on, pglz, lz4, zstd). Empty string leaves the Cloud SQL tier default unset."
+  type        = string
+  default     = ""
+}
+variable "max_wal_size" {
+  description = "max_wal_size in MB. Empty string leaves the Cloud SQL tier default unset."
+  type        = string
+  default     = ""
+}
 variable "allow_unencrypted_connections" {
   description = "Whether to enforce SSL encryption requirements for direct connections. Encryption helps to ensure secure data transfer. Really think about setting this to true"
   type        = bool
