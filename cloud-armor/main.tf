@@ -1,10 +1,9 @@
 locals {
   waf_rules = [
-    { target_rule_set = "lfi-v422-stable", sensitivity_level = 4, preview = true },
     { target_rule_set = "rfi-v422-stable", sensitivity_level = 1, preview = true },
     { target_rule_set = "scannerdetection-v422-stable", sensitivity_level = 4, preview = false },
     { target_rule_set = "sessionfixation-v422-stable", sensitivity_level = 4, preview = true },
-    { target_rule_set = "java-v422-stable", sensitivity_level = 4, preview = true },
+    { target_rule_set = "java-v422-stable", sensitivity_level = 3, preview = true },
     { target_rule_set = "generic-v422-stable", sensitivity_level = 4, preview = true },
   ]
 }
