@@ -10,4 +10,3 @@ output "user_password" {
 output "database_name" {
   value = google_sql_database.main_database.name
 }
-

@@ -8,14 +8,8 @@ variable "k8s_namespace" {
   description = "Kubernetes namespace."
 }
 
-variable "service_name" {
-  type        = string
-  description = "Kubernetes namespace."
-}
-
-variable "environment_name" {
-  type        = string
-  description = "Environment name."
+variable "name" {
+  type = string
 }
 
 variable "roles" {

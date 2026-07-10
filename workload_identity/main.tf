@@ -2,7 +2,8 @@ module "workload_identity" {
   source  = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
   version = "44.2.0"
 
-  name = "${substr(var.service_name, 0, 20)}-${var.environment_name}"
+  name                = var.name
+  use_existing_gcp_sa = true
 
   project_id = var.project_id
   namespace  = var.k8s_namespace
