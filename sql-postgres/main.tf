@@ -112,6 +112,14 @@ module "sql-db_postgresql" {
     var.wal_compression != "" ? [{ name : "wal_compression", value : var.wal_compression }] : [],
     var.max_wal_size != "" ? [{ name : "max_wal_size", value : var.max_wal_size }] : [],
   )
+
+  read_replicas = var.db_read_replica == null ? [] : [
+    {
+      name             = var.db_read_replica.name
+      zone             = var.db_read_replica.zone
+      user_labels      = {}
+      ip_configuration = {}
+  }]
 }
 
 resource "google_sql_user" "gcp_developers" {
