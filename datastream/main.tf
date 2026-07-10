@@ -24,17 +24,11 @@ resource "google_datastream_connection_profile" "postgres_source" {
   ]
 }
 
-# Random password for Datastream user
-resource "random_password" "datastream_password" {
-  length  = 30
-  special = true
-}
-
 # Datastream user for PostgreSQL replication
 resource "google_sql_user" "datastream_user" {
   name     = "${var.environment_name}_datastream"
   instance = var.db.name
-  password = random_password.datastream_password.result
+  password = var.password
   project  = var.project_id
 }
 
@@ -73,7 +67,7 @@ resource "null_resource" "run_datastream_setup" {
       SUPERUSER_PASSWORD       = var.db.user_password
       DATABASE_NAME            = var.db.database_name
       DATASTREAM_USERNAME      = google_sql_user.datastream_user.name
-      DATASTREAM_PASSWORD      = random_password.datastream_password.result
+      DATASTREAM_PASSWORD      = var.password
       PUBLICATION              = local.datastream_publication
       SLOT                     = local.datastream_replication_slot
     }

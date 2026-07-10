@@ -8,23 +8,8 @@ variable "k8s_namespace" {
   description = "Kubernetes namespace."
 }
 
-variable "region_short" {
+variable "name" {
   type = string
-  validation {
-    condition     = length(var.region_short) == 3
-    error_message = "region_short to be 3 chars long, e.g. ew2"
-  }
-  description = "Kubernetes namespace."
-}
-
-variable "service_name" {
-  type        = string
-  description = "Kubernetes namespace."
-}
-
-variable "environment_name" {
-  type        = string
-  description = "Environment name."
 }
 
 variable "roles" {
