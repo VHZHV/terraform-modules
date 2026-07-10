@@ -27,6 +27,12 @@ variable "db_backup" {
   type        = bool
   description = "Whether to enable database backup."
 }
+variable "db_read_replica" {
+  type = object({
+    name = string
+    zone = string
+  })
+}
 
 variable "db_insights" {
   type        = bool
