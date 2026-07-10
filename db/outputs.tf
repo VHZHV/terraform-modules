@@ -3,7 +3,8 @@ output "user_name" {
 }
 
 output "user_password" {
-  value = random_password.admin_user_password.result
+  value     = var.password
+  sensitive = true
 }
 
 output "database_name" {
