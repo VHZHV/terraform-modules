@@ -113,9 +113,11 @@ module "sql-db_postgresql" {
     var.max_wal_size != "" ? [{ name : "max_wal_size", value : var.max_wal_size }] : [],
   )
 
+  read_replica_name_suffix = ""
   read_replicas = var.db_read_replica == null ? [] : [
     {
-      name             = var.db_read_replica.name
+      name             = ""
+      name_override    = var.db_read_replica.name
       zone             = var.db_read_replica.zone
       user_labels      = {}
       ip_configuration = {}

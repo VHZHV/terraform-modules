@@ -8,7 +8,7 @@ output "db_name" {
 
 output "db_replica" {
   value = length(data.google_compute_zones.replica_available) == 0 ? null : {
-    name = "${var.name}-${module.region_short.value}"
+    name = "${var.name}-${module.replica_region_short[0].value}"
     zone = data.google_compute_zones.replica_available[0].names[0]
   }
 }
