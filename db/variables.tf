@@ -18,6 +18,11 @@ variable "user_name" {
   default = ""
 }
 
+variable "password" {
+  type      = string
+  sensitive = true
+}
+
 variable "deletable" {
   type        = bool
   description = "Flag to indicate if the database can be deleted."

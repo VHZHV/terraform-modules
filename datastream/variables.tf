@@ -27,6 +27,11 @@ variable "tables" {
   type = list(string)
 }
 
+variable "password" {
+  type      = string
+  sensitive = true
+}
+
 variable "db" {
   type = object({
     connection_name   = string
