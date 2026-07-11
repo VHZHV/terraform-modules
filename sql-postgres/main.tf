@@ -116,11 +116,25 @@ module "sql-db_postgresql" {
   read_replica_name_suffix = ""
   read_replicas = var.db_read_replica == null ? [] : [
     {
-      name             = ""
-      name_override    = var.db_read_replica.name
-      zone             = var.db_read_replica.zone
-      user_labels      = {}
-      ip_configuration = {}
+      name          = ""
+      name_override = var.db_read_replica.name
+      zone          = var.db_read_replica.zone
+      user_labels   = {}
+      tier          = "db-custom-1-3840"
+      ip_configuration = {
+        ipv4_enabled    = false
+        private_network = data.google_compute_network.network.id
+      }
+      database_flags = [
+        {
+          name : "cloudsql.logical_decoding",
+          value : "on"
+        },
+        {
+          name : "max_connections",
+          value : var.max_connections
+        }
+      ]
   }]
 }
 
