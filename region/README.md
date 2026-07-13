@@ -16,13 +16,17 @@
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+| ---- | ------ | ------- |
+| <a name="module_region_short"></a> [region\_short](#module\_region\_short) | ../region_short | n/a |
+| <a name="module_replica_region_short"></a> [replica\_region\_short](#module\_replica\_region\_short) | ../region_short | n/a |
 
 ## Resources
 
 | Name | Type |
 | ---- | ---- |
 | [google_compute_zones.available](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_zones) | data source |
+| [google_compute_zones.replica_available](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/compute_zones) | data source |
 
 ## Inputs
 
@@ -33,6 +37,7 @@ No modules.
 | <a name="input_name"></a> [name](#input\_name) | The name of the cluster, will be used to generate the cluster name and database name. | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The project ID to host the cluster in | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The region to host the cluster in, e.g. europe-west4 | `string` | n/a | yes |
+| <a name="input_regions"></a> [regions](#input\_regions) | n/a | `list(string)` | n/a | yes |
 | <a name="input_subnet_name_suffix"></a> [subnet\_name\_suffix](#input\_subnet\_name\_suffix) | Suffix for the subnet name, will be appended to the region name. | `string` | n/a | yes |
 
 ## Outputs
@@ -43,6 +48,7 @@ No modules.
 | <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | n/a |
 | <a name="output_cluster_zones"></a> [cluster\_zones](#output\_cluster\_zones) | n/a |
 | <a name="output_db_name"></a> [db\_name](#output\_db\_name) | n/a |
+| <a name="output_db_replica"></a> [db\_replica](#output\_db\_replica) | n/a |
 | <a name="output_region_short"></a> [region\_short](#output\_region\_short) | n/a |
 | <a name="output_subnet_name"></a> [subnet\_name](#output\_subnet\_name) | n/a |
 <!-- END_TF_DOCS -->
