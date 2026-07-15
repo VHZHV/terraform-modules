@@ -10,6 +10,9 @@ variable "region" {
   description = "The region to host the cluster in, e.g. europe-west4"
   type        = string
 }
+variable "regions" {
+  type = list(string)
+}
 variable "cluster_regional" {
   type        = bool
   description = "Whether is a regional cluster (zonal cluster if set false."
@@ -24,9 +27,6 @@ variable "subnet_name_suffix" {
 }
 
 locals {
-  _region_short = join("", [for s in split("-", var.region) : substr(s, 0, 1)])
-  region_short  = "${local._region_short}${substr(var.region, length(var.region) - 1, 1)}"
-
   zones = data.google_compute_zones.available.names
   cluster_zones = (var.cluster_zone_selector == "*" ? tolist(local.zones) :
   [local.zones[tonumber(var.cluster_zone_selector)]])

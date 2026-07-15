@@ -38,6 +38,7 @@
 | <a name="input_db_backup"></a> [db\_backup](#input\_db\_backup) | Whether to enable database backup. | `bool` | n/a | yes |
 | <a name="input_db_insights"></a> [db\_insights](#input\_db\_insights) | Whether to enable database insights. | `bool` | n/a | yes |
 | <a name="input_db_name"></a> [db\_name](#input\_db\_name) | The name of the database to create | `string` | n/a | yes |
+| <a name="input_db_read_replica"></a> [db\_read\_replica](#input\_db\_read\_replica) | n/a | <pre>object({<br/>    name = string<br/>    zone = string<br/>  })</pre> | n/a | yes |
 | <a name="input_db_zone_selector"></a> [db\_zone\_selector](#input\_db\_zone\_selector) | Zone selector for the database. If set to *, all zones will be used. | `string` | n/a | yes |
 | <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | Whether to enable deletion protection for the database. | `bool` | n/a | yes |
 | <a name="input_max_connections"></a> [max\_connections](#input\_max\_connections) | The maximum number of connections to the database. | `string` | `"2000"` | no |
