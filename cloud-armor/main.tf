@@ -10,7 +10,7 @@ locals {
 
 module "security_policy" {
   source  = "GoogleCloudPlatform/cloud-armor/google"
-  version = "8.1.0"
+  version = "8.1.1"
 
   count = var.cloud_armor_id == "" ? 0 : 1
 
