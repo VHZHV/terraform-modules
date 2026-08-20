@@ -10,5 +10,8 @@ resource "google_sql_database" "main_database" {
   name     = var.database_name
   instance = var.cloud_sql_instance_name
 
-  deletion_policy = var.deletable == "" ? "ABANDON" : "DELETE"
+  # `deletable` is a bool, so comparing it to "" was never true and every
+  # database got DELETE regardless of the flag — including production ones set
+  # to false. Honour the variable as documented.
+  deletion_policy = var.deletable ? "DELETE" : "ABANDON"
 }
