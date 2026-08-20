@@ -23,6 +23,11 @@ data:
   OTEL_INSTRUMENTATION_MICROMETER_ENABLED: "true"
   OTEL_INSTRUMENTATION_EXECUTORS_ENABLED: "true"
   OTEL_INSTRUMENTATION_METHODS_ENABLED: "true"
+  # @WithSpan. The module registers under the names "opentelemetry-instrumentation-annotations",
+  # "opentelemetry-instrumentation-annotations-1.16" and "annotations", and any one of them enables
+  # it; without one, under the default-off above, the annotation is silently ignored -- no error, no
+  # span, just a method that looks instrumented and is not.
+  OTEL_INSTRUMENTATION_ANNOTATIONS_ENABLED: "true"
   OTEL_INSTRUMENTATION_TOMCAT_ENABLED: "true"
   OTEL_INSTRUMENTATION_SPRING_WEBMVC_ENABLED: "true"
   OTEL_INSTRUMENTATION_SPRING_WEB_ENABLED: "true"
