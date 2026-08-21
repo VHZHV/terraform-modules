@@ -10,5 +10,5 @@ resource "google_sql_database" "main_database" {
   name     = var.database_name
   instance = var.cloud_sql_instance_name
 
-  deletion_policy = var.deletable == "" ? "ABANDON" : "DELETE"
+  deletion_policy = var.deletable ? "DELETE" : "ABANDON"
 }
