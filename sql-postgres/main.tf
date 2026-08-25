@@ -122,6 +122,7 @@ module "sql-db_postgresql" {
       user_labels   = {}
       tier          = "db-custom-1-3840"
       ip_configuration = {
+        ssl_mode        = "ENCRYPTED_ONLY"
         ipv4_enabled    = false
         private_network = data.google_compute_network.network.id
       }
