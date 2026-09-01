@@ -116,11 +116,12 @@ module "sql-db_postgresql" {
   read_replica_name_suffix = ""
   read_replicas = var.db_read_replica == null ? [] : [
     {
-      name          = ""
-      name_override = var.db_read_replica.name
-      zone          = var.db_read_replica.zone
-      user_labels   = {}
-      tier          = "db-custom-1-3840"
+      name              = ""
+      name_override     = var.db_read_replica.name
+      zone              = var.db_read_replica.zone
+      user_labels       = {}
+      tier              = "db-custom-1-3840"
+      availability_type = "ZONAL"
       ip_configuration = {
         ssl_mode        = "ENCRYPTED_ONLY"
         ipv4_enabled    = false
