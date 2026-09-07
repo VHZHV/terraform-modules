@@ -1,6 +1,6 @@
 module "workload_identity" {
   source  = "terraform-google-modules/kubernetes-engine/google//modules/workload-identity"
-  version = "45.0.0"
+  version = "44.3.0"
 
   name                = var.name
   use_existing_gcp_sa = true
