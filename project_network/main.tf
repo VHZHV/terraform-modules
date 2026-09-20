@@ -1,6 +1,6 @@
 module "dns_zone" {
   source  = "terraform-google-modules/cloud-dns/google"
-  version = "7.1.0"
+  version = "7.2.0"
 
   project_id = var.project_id
   type       = "public"
@@ -26,7 +26,7 @@ resource "google_dns_record_set" "domain" {
 
 module "vpc" {
   source  = "terraform-google-modules/network/google"
-  version = "18.2.0"
+  version = "18.3.0"
 
   project_id                   = var.project_id
   network_name                 = var.network_name
@@ -60,7 +60,7 @@ module "private-service-access" {
   depends_on = [module.vpc]
 
   source  = "terraform-google-modules/sql-db/google//modules/private_service_access"
-  version = "28.2.0"
+  version = "28.3.0"
 
   project_id      = var.project_id
   vpc_network     = module.vpc.network_name
