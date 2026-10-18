@@ -1,6 +1,6 @@
 module "dns_zone" {
   source  = "terraform-google-modules/cloud-dns/google"
-  version = "7.2.0"
+  version = "7.2.1"
 
   project_id = var.project_id
   type       = "public"
