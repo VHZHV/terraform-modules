@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "check": "node check.mjs",
-    "exec": "node create.mjs"
+    "exec": "node create.mjs",
+    "test": "node --test"
   },
   "dependencies": {
     "@google-cloud/cloud-sql-connector": "^1",
