@@ -53,6 +53,16 @@ variable "publication_tables" {
   type        = list(string)
   default     = null
   description = "Bare table names in schema public to publish. When null the publication is FOR ALL TABLES and setup errors are logged and ignored; when set the publication lists only these tables and setup fails on any error."
+
+  validation {
+    condition     = var.publication_tables == null || length(var.publication_tables) > 0
+    error_message = "publication_tables must be null or a non-empty list; an empty list would otherwise publish all tables."
+  }
+
+  validation {
+    condition     = alltrue([for t in coalesce(var.publication_tables, []) : can(regex("^[a-z_][a-z0-9_]*$", t))])
+    error_message = "publication_tables entries must be bare table names (lowercase letters, digits, underscores), without a schema prefix."
+  }
 }
 
 variable "backfill" {

@@ -108,3 +108,19 @@ run "invalid_desired_state" {
   }
   expect_failures = [var.desired_state]
 }
+
+run "empty_publication_tables" {
+  command = plan
+  variables {
+    publication_tables = []
+  }
+  expect_failures = [var.publication_tables]
+}
+
+run "non_bare_publication_table" {
+  command = plan
+  variables {
+    publication_tables = ["public.foo"]
+  }
+  expect_failures = [var.publication_tables]
+}

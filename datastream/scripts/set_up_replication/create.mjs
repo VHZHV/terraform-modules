@@ -6,9 +6,14 @@ import {createPublicationSql, missingTablesSql} from "./sql.mjs";
 const {Pool} = pg;
 
 const strict = process.env.STRICT === "true";
-const publicationTables = process.env.PUBLICATION_TABLES
-    ? process.env.PUBLICATION_TABLES.split(",").map((t) => t.trim()).filter(Boolean)
-    : null;
+const publicationTables = process.env.PUBLICATION_TABLES === undefined
+    ? null
+    : process.env.PUBLICATION_TABLES.split(",").map((t) => t.trim()).filter(Boolean);
+
+if (publicationTables !== null && publicationTables.length === 0) {
+    console.log("❌ Error: PUBLICATION_TABLES is set but empty; refusing to fall back to FOR ALL TABLES");
+    process.exit(1);
+}
 
 // Log a failed command and carry on, or stop with a non-zero exit when STRICT=true.
 function failed(error) {
