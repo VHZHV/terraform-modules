@@ -1,8 +1,22 @@
 import pg from "pg";
 import {Connector} from "@google-cloud/cloud-sql-connector";
 import {GoogleAuth} from 'google-auth-library';
+import {createPublicationSql, missingTablesSql} from "./sql.mjs";
 
 const {Pool} = pg;
+
+const strict = process.env.STRICT === "true";
+const publicationTables = process.env.PUBLICATION_TABLES
+    ? process.env.PUBLICATION_TABLES.split(",").map((t) => t.trim()).filter(Boolean)
+    : null;
+
+// Log a failed command and carry on, or stop with a non-zero exit when STRICT=true.
+function failed(error) {
+    console.log(`❌ Error: ${error.message}`);
+    if (strict) {
+        process.exit(1);
+    }
+}
 
 const connector = new Connector(
     {
@@ -61,27 +75,41 @@ for (const command of permissionCommands) {
             console.log(`   Command: ${result.command}`);
         }
     } catch (error) {
-        console.log(`❌ Error: ${error.message}`);
+        failed(error);
     }
 }
 
-console.log("\nCreating publication for all tables...");
-console.log(
-    `Executing: DO $$ BEGIN IF NOT EXISTS (SELECT 1 FROM pg_publication WHERE pubname = '${process.env.PUBLICATION}') THEN CREATE PUBLICATION ${process.env.PUBLICATION} FOR ALL TABLES; END IF; END$$;`,
-);
+console.log(`\nCreating publication for ${publicationTables === null ? "all tables" : publicationTables.join(", ")}...`);
+const createPublication = createPublicationSql(process.env.PUBLICATION, publicationTables);
+console.log(`Executing: ${createPublication}`);
 try {
-    const publicationResult = await superuserPool.query(
-        `DO $$
-    BEGIN
-      IF NOT EXISTS (SELECT 1 FROM pg_publication WHERE pubname = '${process.env.PUBLICATION}') THEN
-        CREATE PUBLICATION ${process.env.PUBLICATION} FOR ALL TABLES;
-      END IF;
-    END$$;`,
-    );
+    const publicationResult = await superuserPool.query(createPublication);
     console.log("✅ Success - Command executed successfully");
     console.log(`   Command: ${publicationResult.command}`);
 } catch (error) {
-    console.log(`❌ Error: ${error.message}`);
+    failed(error);
+}
+
+if (publicationTables !== null) {
+    // An existing publication keeps its table list, so add anything newly requested.
+    try {
+        const existing = await superuserPool.query(
+            "SELECT schemaname || '.' || tablename AS name FROM pg_publication_tables WHERE pubname = $1",
+            [process.env.PUBLICATION],
+        );
+        const statements = missingTablesSql(
+            process.env.PUBLICATION,
+            publicationTables,
+            existing.rows.map((row) => row.name),
+        );
+        for (const statement of statements) {
+            console.log(`Executing: ${statement}`);
+            await superuserPool.query(statement);
+            console.log("✅ Success - Command executed successfully");
+        }
+    } catch (error) {
+        failed(error);
+    }
 }
 
 console.log("\nClosing superuser connection...");
@@ -114,7 +142,7 @@ try {
     console.log("✅ Success - Command executed successfully");
     console.log(`   Command: ${slotResult.command}`);
 } catch (error) {
-    console.log(`❌ Error: ${error.message}`);
+    failed(error);
 }
 
 console.log("\nClosing datastream connection...");
