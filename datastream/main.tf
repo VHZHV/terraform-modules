@@ -2,13 +2,15 @@ locals {
   _region_short = join("", [for s in split("-", var.region) : substr(s, 0, 1)])
   region_short  = "${local._region_short}${substr(var.region, length(var.region) - 1, 1)}"
   name_stem     = var.name_suffix == null ? var.environment_name : "${var.environment_name}_${var.name_suffix}"
+  # Datastream resource ids are not documented to accept underscores; dataset ids need them, so only ids use this.
+  id_group = var.name_suffix == null ? var.group : replace(var.group, "_", "-")
 }
 
 # Datastream connection profile for Cloud SQL PostgreSQL source
 resource "google_datastream_connection_profile" "postgres_source" {
-  display_name          = "${var.environment_name}-${var.group}-${local.region_short}-postgres-source"
+  display_name          = "${var.environment_name}-${local.id_group}-${local.region_short}-postgres-source"
   location              = var.region
-  connection_profile_id = "${var.environment_name}-${var.group}-${local.region_short}-postgres-source"
+  connection_profile_id = "${var.environment_name}-${local.id_group}-${local.region_short}-postgres-source"
 
   postgresql_profile {
     hostname = var.db.public_ip_address
@@ -50,7 +52,8 @@ locals {
         local.datastream_publication,
         local.datastream_replication_slot
       ],
-      # Appended only when set, so the hash is unchanged for existing callers.
+      # Appended only when set, so non-file inputs are unchanged for default callers;
+      # changing the script files re-runs setup once.
       var.publication_tables == null ? [] : [join(",", var.publication_tables), "strict"],
     )
   )
@@ -83,9 +86,9 @@ resource "null_resource" "run_datastream_setup" {
 
 # Connection profile for BigQuery destination
 resource "google_datastream_connection_profile" "bigquery_destination" {
-  display_name          = "${var.environment_name}-${var.group}-${local.region_short}-bigquery-dest"
+  display_name          = "${var.environment_name}-${local.id_group}-${local.region_short}-bigquery-dest"
   location              = var.region
-  connection_profile_id = "${var.environment_name}-${var.group}-${local.region_short}-bigquery-dest"
+  connection_profile_id = "${var.environment_name}-${local.id_group}-${local.region_short}-bigquery-dest"
 
   bigquery_profile {}
 
@@ -94,10 +97,10 @@ resource "google_datastream_connection_profile" "bigquery_destination" {
 
 
 resource "google_datastream_stream" "stream" {
-  display_name  = "postgres to bigQuery ${var.group} ${local.region_short} ${var.environment_name}"
+  display_name  = "postgres to bigQuery ${local.id_group} ${local.region_short} ${var.environment_name}"
   location      = var.region
   project       = var.project_id
-  stream_id     = "postgres-to-bigquery-${var.group}-${local.region_short}-${var.environment_name}"
+  stream_id     = "postgres-to-bigquery-${local.id_group}-${local.region_short}-${var.environment_name}"
   desired_state = var.desired_state
   source_config {
     source_connection_profile = google_datastream_connection_profile.postgres_source.name

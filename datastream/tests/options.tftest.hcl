@@ -82,14 +82,43 @@ run "all_options" {
   }
 }
 
-# Default-case trigger must not change, or every existing caller would see
-# null_resource.run_datastream_setup replaced.
-run "default_trigger_unchanged" {
+run "underscored_group_with_suffix" {
+  command = plan
+
+  variables {
+    group       = "parking_sessions"
+    name_suffix = "parking_sessions"
+  }
+
+  assert {
+    condition     = google_datastream_stream.stream.stream_id == "postgres-to-bigquery-parking-sessions-ew2-production"
+    error_message = "stream_id should hyphenate the group"
+  }
+
+  assert {
+    condition     = google_datastream_connection_profile.postgres_source.connection_profile_id == "production-parking-sessions-ew2-postgres-source"
+    error_message = "source connection_profile_id should hyphenate the group"
+  }
+
+  assert {
+    condition     = google_datastream_connection_profile.bigquery_destination.connection_profile_id == "production-parking-sessions-ew2-bigquery-dest"
+    error_message = "destination connection_profile_id should hyphenate the group"
+  }
+
+  assert {
+    condition     = google_datastream_stream.stream.destination_config[0].bigquery_destination_config[0].source_hierarchy_datasets[0].dataset_template[0].dataset_id_prefix == "parking_sessions_production_"
+    error_message = "dataset_id_prefix must keep the underscored group"
+  }
+}
+
+# Non-file trigger inputs must not change for default callers; changing the
+# script files re-runs setup once.
+run "default_trigger_inputs_unchanged" {
   command = plan
 
   assert {
     condition     = null_resource.run_datastream_setup.triggers.always_run == "${sha1(join("", [for f in fileset("${path.module}/scripts/set_up_replication", "*") : filesha1("${path.module}/scripts/set_up_replication/${f}")], ["test-project:europe-west2:db", "postgres", "parking_sessions", "production_datastream", "production_pub", "production_datastream_slot"]))}-production_datastream"
-    error_message = "default-case trigger changed; existing callers would re-run the setup script"
+    error_message = "default-case non-file trigger inputs changed"
   }
 }
 
