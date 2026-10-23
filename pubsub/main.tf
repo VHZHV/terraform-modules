@@ -1,6 +1,6 @@
 locals {
   # Convention: All of the projects resources must be self-managed
-  create_topic = var.topic.project_id == var.project_id
+  create_topic = var.topic.project_id == null || var.topic.project_id == var.project_id
 }
 
 data "google_pubsub_topic" "root_topic" {
