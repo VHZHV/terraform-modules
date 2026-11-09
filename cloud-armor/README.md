@@ -15,7 +15,7 @@ No providers.
 
 | Name | Source | Version |
 | ---- | ------ | ------- |
-| <a name="module_security_policy"></a> [security\_policy](#module\_security\_policy) | GoogleCloudPlatform/cloud-armor/google | 9.0.0 |
+| <a name="module_security_policy"></a> [security\_policy](#module\_security\_policy) | GoogleCloudPlatform/cloud-armor/google | 10.0.0 |
 
 ## Resources
 
