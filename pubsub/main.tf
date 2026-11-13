@@ -13,7 +13,7 @@ data "google_pubsub_topic" "root_topic" {
 # trivy:ignore:avd-gcp-0011 This is part of the module, and only adds it the pubsub project
 module "pubsub" {
   source     = "terraform-google-modules/pubsub/google"
-  version    = "8.8.1"
+  version    = "8.9.1"
   depends_on = [module.dead_letter_pubsub]
 
   project_id          = var.project_id

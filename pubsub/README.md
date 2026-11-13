@@ -20,7 +20,7 @@
 | ---- | ------ | ------- |
 | <a name="module_dead_letter_pubsub"></a> [dead\_letter\_pubsub](#module\_dead\_letter\_pubsub) | ../dead_letter_topic | n/a |
 | <a name="module_dead_letter_pubsub_topic-iam-bindings"></a> [dead\_letter\_pubsub\_topic-iam-bindings](#module\_dead\_letter\_pubsub\_topic-iam-bindings) | terraform-google-modules/iam/google//modules/pubsub_topics_iam | 8.3.0 |
-| <a name="module_pubsub"></a> [pubsub](#module\_pubsub) | terraform-google-modules/pubsub/google | 8.8.1 |
+| <a name="module_pubsub"></a> [pubsub](#module\_pubsub) | terraform-google-modules/pubsub/google | 8.9.1 |
 
 ## Resources
 
